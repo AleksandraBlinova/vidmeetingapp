@@ -7,6 +7,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Options from "../options/Options";
 
 function UserAccountComponent() {
   return (
@@ -18,46 +19,23 @@ function UserAccountComponent() {
         </div>
 
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2} columns={16}>
-            <Grid item xs={6}>
-              <div className="user-container">
-                <div className="options">
-                  <p className="options-p">Options</p>
-                </div>
-
-                <div className="user-menu">
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Events</p>
-                  </div>
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Contacts</p>
-                  </div>
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Users</p>
-                  </div>
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Email</p>
-                  </div>
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Notifications</p>
-                  </div>
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Chat</p>
-                  </div>
-                  <div className="user-menu-item">
-                    <p className="user-menu-item-p">Calls</p>
-                  </div>
-                </div>
-              </div>
-            </Grid>
+          <Grid container spacing={1}>
+            <Options />
             <Grid item xs={8}>
               <div className="user-info-container">
                 <div className="user-btns">
                   {" "}
-                  <Button variant="outlined" color="secondary">
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    sx={{ marginRight: "15px" }}
+                  >
                     Change password
-                  </Button>
-                  <img />
+                  </Button>{" "}
+                  <img
+                    style={{ width: "40px", height: "40px" }}
+                    src="./icon.png"
+                  />
                 </div>{" "}
                 <Grid item xs={8}>
                   <img
