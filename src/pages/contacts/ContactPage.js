@@ -1,6 +1,5 @@
 import React from "react";
-import AppBarComponent from "../../navbar/AppBar";
-import "./ContactComponent.css";
+import AppBarComponent from "../../appBar/AppBar";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -8,11 +7,11 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Options from "../options/Options";
-import "./ContactComponent.css";
-import ButtonsContact from "./ButtonsContact";
-import Cards from "./Cards";
+import "../../styles/ContactComponent.css";
+import ButtonsContact from "../../elements/ButtonsContact";
+import Cards from "../../elements/CardsContact";
 
-const ContactComponent = () => {
+const ContactPage = () => {
   return (
     <div className="contacts-zone-container">
       <AppBarComponent />
@@ -44,4 +43,4 @@ const ContactComponent = () => {
   );
 };
 
-export default ContactComponent;
+export default ContactPage;

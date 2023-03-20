@@ -1,5 +1,4 @@
 import React from "react";
-import AppBarComponent from "../../navbar/AppBar";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
