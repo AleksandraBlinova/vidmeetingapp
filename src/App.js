@@ -7,14 +7,12 @@ import UserAccountComponent from "./pages/userAccount/UserAccountPage";
 import ContactPage from "./pages/contacts/ContactPage";
 import AddContact from "./pages/addContact/AddContact";
 import CalendarPage from "./pages/calendar/CalendarPage";
+import Panel from "./pages/panel/Panel";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        {" "}
-        <UserAccountComponent />
-      </BrowserRouter>
+      <CalendarPage />
     </div>
   );
 }

@@ -11,13 +11,17 @@ import {
   Appointments,
   AppointmentTooltip,
   DragDropProvider,
-  EditRecurrenceMenu,
+  ConfirmationDialog,
   AllDayPanel,
   DateNavigator,
+  AppointmentForm,
+  Resources,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { Paper, Dialog, Button, Fab } from "@mui/material";
+import { appointments } from "./data/data-for-month";
+import { green, orange } from "@mui/material/colors";
 
 const PREFIX = "Demo";
 const classes = {
@@ -34,26 +38,10 @@ const classes = {
   cardContent: `${PREFIX}-cardContent`,
   justifyButtons: `${PREFIX}-justifyButtons`,
 };
-const ButtonMui = (props) => {
-  return (
-    <Button
-      onClick={props.onClick}
-      color={props.color}
-      className={props.className}
-      variant={props.variant}
-      endIcon={props.endIcon}
-      startIcon={props.startIcon}
-      disableElevation
-      size={props.size}
-    >
-      {props.children}
-    </Button>
-  );
-};
 
 function CalendarComponent(props) {
-  const [data, setData] = useState(props.meetings);
-  const [currentDate, setCurrentDate] = useState("2022-03-01");
+  const [data, setData] = useState(appointments);
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [addParticipantsVisible, setAddParticipantsVisible] = useState(false);
 
@@ -66,8 +54,8 @@ function CalendarComponent(props) {
   const [isNewAppointment, setIsNewAppointment] = useState(false);
 
   useEffect(() => {
-    setData(props.meetings);
-  }, [props.meetings]);
+    setData(appointments);
+  }, [appointments]);
 
   const onAddedAppointmentChange = (addedAppointment) => {
     setAddedAppointment(addedAppointment);
@@ -102,6 +90,7 @@ function CalendarComponent(props) {
 
   const commitChanges = ({ added, changed, deleted }) => {
     let newData = data;
+    console.log(added);
     if (added) {
       let startingAddedId =
         data?.length > 0 ? data[data?.length - 1].id + 1 : 0;
@@ -124,94 +113,37 @@ function CalendarComponent(props) {
     setAddedAppointment({});
   };
 
-  const Header = ({ children, appointmentData, ...restProps }) => (
-    <div {...restProps}>
-      {appointmentData.meetingId && (
-        <>
-          <Button
-            onClick={() =>
-              props.joinMeeting && props.joinMeeting(appointmentData)
-            }
-            size="large"
-          >
-            Join Meeting
-          </Button>
-          <Button
-            onClick={async () => {
-              await navigator.clipboard.writeText(
-                appointmentData.invitationText
-              );
-            }}
-            size="large"
-          >
-            Copy Invitation
-          </Button>
-        </>
-      )}
-    </div>
-  );
-
-  const Content = ({ children, appointmentData, ...restProps }) => {
-    return (
-      <Box>
-        <div style={{ padding: "30px" }}>
-          <p>Meeting ID: {appointmentData.meetingId}</p>
-          <p>Topic: {appointmentData.topic}</p>
-          <p>Start Date: {Date.displayDate(appointmentData.startDate)}</p>
-          <p>End Date: {Date.displayDate(appointmentData.endDate)}</p>
-          <p>Time zone: {appointmentData.timeZone}</p>
-
-          <div
-            className={classes.justifyButtons}
-            style={{
-              justifyContent: "space-between",
-              padding: "10px 0",
-              display: "flex",
-            }}
-          >
-            <ButtonMui
-              onClick={() => {
-                commitDeletedAppointment();
-              }}
-              color="secondary"
-              variant="outlined"
-            >
-              Delete
-            </ButtonMui>
-
-            <ButtonMui
-              onClick={() => {
-                commitDeletedAppointment();
-              }}
-              color="secondary"
-              variant="outlined"
-            >
-              Edit
-            </ButtonMui>
-
-            <ButtonMui
-              onClick={() => {
-                addParticipantsView(appointmentData.meetingId);
-              }}
-              color="secondary"
-              variant="outlined"
-            >
-              Add participants
-            </ButtonMui>
-          </div>
-        </div>
-      </Box>
-    );
+  const [visible, setVisible] = useState(false);
+  const onVisibleChange = () => {
+    setVisible(!visible);
   };
 
+  const [appointmentMeta, setappointmentMeta] = useState({
+    target: null,
+    data: {},
+  });
+  const onAppointmentMetaChange = ({ data, target }) => {
+    console.log({ data, target });
+    setappointmentMeta({ data, target });
+  };
+
+  const resources = [
+    {
+      fieldName: "location",
+      title: "Location",
+      instances: [
+        { id: "Room 1", text: "Room 1", color: "#EC407A" },
+        { id: "Room 2", text: "Room 2", color: "#7E57C2" },
+        { id: "Room 3", text: "Room 3", color: "#ffa500" },
+      ],
+    },
+  ];
+
   return (
-    <Paper>
-      <Scheduler data={data} height={660} style={{ zIndex: "1111" }}>
+    <Paper sx={{ backgroundColor: "inherit", boxShadow: "none" }}>
+      <Scheduler data={data} height={580} style={{ zIndex: "1111" }}>
         <ViewState />
-        <EditingState
-          onCommitChanges={commitChanges}
-          onAddedAppointmentChange={onAddedAppointmentChange}
-        />
+        <EditingState onCommitChanges={commitChanges} />
         <WeekView
           startDayHour={startDayHour}
           endDayHour={endDayHour}
@@ -219,58 +151,16 @@ function CalendarComponent(props) {
         />
         <MonthView />
         <AllDayPanel />
-        <EditRecurrenceMenu />
+        <ConfirmationDialog />
         <Appointments />
-        <AppointmentTooltip
-          headerComponent={Header}
-          commandButtonComponent={AppointmentTooltip.CommandButton}
-          contentComponent={Content}
-          showOpenButton
-          showCloseButton
-          showDeleteButton
-        />
+        <Resources data={resources} />
+        <AppointmentTooltip showCloseButton showOpenButton showDeleteButton />
+        <AppointmentForm />
         <Toolbar />
         <DateNavigator />
         <ViewSwitcher />
         <DragDropProvider />
       </Scheduler>
-      {/* /onClose={cancelDelete} */}
-      <Dialog
-        open={confirmationVisible}
-        title={"Delete Appointment"}
-        contentText={"Are you sure you want to delete this appointment?"}
-        actions={
-          <>
-            <Button
-              onClick={toggleConfirmationVisible}
-              color="primary"
-              variant="outlined"
-            >
-              Cancel
-            </Button>
-            <Button
-              onClick={commitDeletedAppointment}
-              color="secondary"
-              variant="outlined"
-            >
-              Delete
-            </Button>
-          </>
-        }
-      ></Dialog>
-
-      <Fab
-        color="primary"
-        className={classes.addButton}
-        onClick={() => {
-          onAddedAppointmentChange({
-            startDate: new Date(currentDate).setHours(startDayHour),
-            endDate: new Date(currentDate).setHours(startDayHour + 1),
-          });
-        }}
-      >
-        <AddIcon />
-      </Fab>
     </Paper>
   );
 }

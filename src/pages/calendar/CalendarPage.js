@@ -13,22 +13,14 @@ const CalendarPage = () => {
         display="flex"
         flexDirection="row"
         justifyContent="space-between"
-        width="96%"
+        width="90%"
+        height="80%"
         margin="auto"
         alignItems="center"
       >
-        <div className="date d-flex  ">
-          <Box className="calendarIcon">
-            {" "}
-            <CalendarComponent />
-          </Box>
-
-          <Box display="flex" flexDirection="column">
-            <Typography variant="caption"></Typography>
-            <Typography variant="caption"></Typography>
-          </Box>
-        </div>
+        <CalendarComponent />
       </Box>
+      <div></div>
     </div>
   );
 };
