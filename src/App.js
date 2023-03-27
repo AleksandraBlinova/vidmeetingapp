@@ -8,11 +8,15 @@ import ContactPage from "./pages/contacts/ContactPage";
 import AddContact from "./pages/addContact/AddContact";
 import CalendarPage from "./pages/calendar/CalendarPage";
 import Panel from "./pages/panel/Panel";
+import { theme } from "./theming/theme";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function App() {
   return (
     <div className="App">
-      <CalendarPage />
+      <ThemeProvider theme={theme}>
+        <CalendarPage />
+      </ThemeProvider>
     </div>
   );
 }

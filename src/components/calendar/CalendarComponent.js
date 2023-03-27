@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unused-state */
 import React, { useState, useEffect } from "react";
 import { ViewState, EditingState } from "@devexpress/dx-react-scheduler";
+
 import {
   Scheduler,
   Toolbar,
@@ -22,6 +23,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Paper, Dialog, Button, Fab } from "@mui/material";
 import { appointments } from "./data/data-for-month";
 import { green, orange } from "@mui/material/colors";
+import "../../styles/CalendarComponent.css";
 
 const PREFIX = "Demo";
 const classes = {
