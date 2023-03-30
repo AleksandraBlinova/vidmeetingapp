@@ -143,7 +143,7 @@ function CalendarComponent(props) {
 
   return (
     <Paper sx={{ backgroundColor: "inherit", boxShadow: "none" }}>
-      <Scheduler data={data} height={580} style={{ zIndex: "1111" }}>
+      <Scheduler data={data} height={550} style={{ zIndex: "1111" }}>
         <ViewState />
         <EditingState onCommitChanges={commitChanges} />
         <WeekView
