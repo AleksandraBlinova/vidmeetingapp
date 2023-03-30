@@ -19,10 +19,6 @@ const Options = () => {
     { id: "6", option: "Calls" },
   ]);
 
-  const [color, setColors] = React.useState("");
-
-  const handleClickButton = (name) => {};
-
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState("Events");
