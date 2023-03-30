@@ -9,26 +9,28 @@ import Options from "../options/Options";
 
 const CalendarPage = () => {
   return (
-    <div>
+    <div className="calendar-page-container">
       {" "}
       <AppBarComponent />
-      <Box
-        display="flex"
-        flexDirection="row"
-        justifyContent="space-between"
-        width="97%"
-        height="80%"
-        margin="auto"
-        alignItems="center"
-      >
-        <div>
-          {" "}
-          <Options />
-        </div>
-        <div>
-          <CalendarComponent />
-        </div>
-      </Box>
+      <div className="calendar-page-small-container">
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between"
+          width="97%"
+          height="80%"
+          margin="auto"
+          alignItems="center"
+        >
+          <div>
+            {" "}
+            <Options />
+          </div>
+          <div>
+            <CalendarComponent />
+          </div>
+        </Box>
+      </div>
     </div>
   );
 };
