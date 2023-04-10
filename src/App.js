@@ -10,6 +10,7 @@ import UserAccountComponent from "./components/UserAccountPage";
 import ContactPage from "./components/ContactPage";
 import AddContact from "./components/AddContact";
 import CalendarPage from "./components/CalendarPage";
+import Chat from "./components/Chat";
 import { theme } from "./theming/theme";
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/contacts" element={<ContactPage />} />
             <Route path="/users" element={<UserAccountComponent />} />
+            <Route path="/addcontact" element={<AddContact />} />
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

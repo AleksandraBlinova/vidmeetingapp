@@ -9,9 +9,10 @@ import InputBase from "@mui/material/InputBase";
 import FlagIcon from "@mui/icons-material/Flag";
 import { IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
+import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
 
 const buttons = [
   <Button key="one">All</Button>,
@@ -90,17 +91,16 @@ const ButtonsContact = () => {
         </ButtonGroup>
         <IconButton>
           {" "}
-          <FlagIcon />
+          <EditIcon sx={{ color: "#fff", fontSize: "30px" }} />
         </IconButton>
         <IconButton>
           {" "}
-          <FormatAlignCenterIcon />
+          <DeleteIcon sx={{ color: "#fff", fontSize: "30px" }} />
         </IconButton>
-        <IconButton>
-          {" "}
-          <ViewModuleIcon />
-        </IconButton>
-        <IconButton sx={{ color: "#fff", backgroundColor: "#9400EA" }}>
+        <IconButton
+          sx={{ color: "#fff", backgroundColor: "#9400EA" }}
+          href="/addcontact"
+        >
           {" "}
           <AddIcon />
         </IconButton>

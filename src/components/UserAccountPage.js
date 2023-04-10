@@ -4,6 +4,11 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { ListItem } from "@mui/material";
+import EventIcon from "@mui/icons-material/Event";
+import CallIcon from "@mui/icons-material/Call";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 import AppBarComponent from "./AppBar";
 import "../styles/Users.css";
@@ -23,45 +28,116 @@ function UserAccountComponent() {
             <Button
               variant="outlined"
               color="secondary"
-              sx={{ marginRight: "15px" }}
+              sx={{ marginRight: "15px", fontSize: "1rem" }}
             >
-              Change password
+              Change information
             </Button>{" "}
-            <img style={{ width: "40px", height: "40px" }} src="./icon.png" />
           </div>{" "}
           <Grid item xs={8}>
-            <img
-              src="./img.png"
-              style={{
-                width: "180px",
-                height: "180px",
-                marginTop: "80px",
-              }}
-            />
-            <h2>Aleksandra Blinova</h2>
+            <h2 className="name">ALEKSANDRA BLINOVA</h2>
           </Grid>
-          <Box sx={{ "& > :not(style)": { m: 3 } }}>
-            <TextField
-              id="outlined-password-input"
-              label="Full name"
-              type="password"
-              autoComplete="current-password"
-            />
-
-            <TextField
-              id="outlined-password-input"
-              label="Phone"
-              type="password"
-              autoComplete="current-password"
-            />
-
-            <TextField
-              id="outlined-password-input"
-              label="Email"
-              type="password"
-              autoComplete="current-password"
-            />
-          </Box>
+          <Box sx={{ width: "100%", marginTop: "30px" }}>
+            <Grid
+              container
+              rowSpacing={1}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            >
+              <Grid item xs={6}>
+                <img
+                  src={require("../images/image-28-04-22-05-33.jpeg")}
+                  className="person-photo"
+                />
+              </Grid>
+              <Grid item xs={6} sx={{ marginTop: "50px" }}>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={6}>
+                    <h4 style={{ color: "#fff", fontWeight: "400" }}> Email</h4>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ color: "#fff" }}>aleksa-blinova@mail.ru</h3>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={6}>
+                    <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                      {" "}
+                      Phone number
+                    </h4>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ color: "#fff" }}>+79106670607</h3>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={6}>
+                    <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                      {" "}
+                      University
+                    </h4>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ color: "#fff" }}>HSE</h3>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={6}>
+                    <h4 style={{ color: "#fff", fontWeight: "400" }}> Role</h4>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ color: "#fff" }}>Student</h3>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={6}>
+                    <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                      {" "}
+                      Degree
+                    </h4>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ color: "#fff" }}>Master's degree</h3>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={6}>
+                    <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                      {" "}
+                      Program
+                    </h4>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ color: "#fff" }}>
+                      System and Software Engineering
+                    </h3>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>{" "}
         </div>
       </div>
     </>

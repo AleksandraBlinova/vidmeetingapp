@@ -13,9 +13,8 @@ const ContactPage = () => {
       <AppBarComponent />
       <div className="contacts-info-container">
         <ButtonsContact />
-        <Grid item xs={8}>
-          <Cards />
-        </Grid>
+
+        <Cards />
       </div>
     </div>
   );

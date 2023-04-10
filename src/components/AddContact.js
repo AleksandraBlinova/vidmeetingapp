@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -10,7 +10,6 @@ import SquareIcon from "@mui/icons-material/Square";
 
 import AppBarComponent from "./AppBar";
 import "../styles/Contacts.css";
-import "../styles/AddContact.css";
 
 const buttons = [
   <Button key="one">Close</Button>,
@@ -19,82 +18,136 @@ const buttons = [
   </Button>,
 ];
 
-const buttonsextra = [
-  <SquareIcon fontSize="small" sx={{ marginTop: "7px", color: "#2A8BF2" }} />,
-  <Button key="one">Company</Button>,
-  <SquareIcon
-    fontSize="small"
-    sx={{ marginTop: "7px", color: "#9400EA", m: 1 }}
-  />,
-  <Button key="two">Individual</Button>,
-];
-
 const AddContact = () => {
+  const [chosenType, setChosenType] = useState("");
+  const handleChangeChosenType = (event) => {
+    setChosenType(event.target.innerText);
+  };
+  const buttonsextra = [
+    <SquareIcon fontSize="small" sx={{ marginTop: "7px", color: "#2A8BF2" }} />,
+    <Button key="one" onClick={handleChangeChosenType}>
+      Group
+    </Button>,
+    <SquareIcon
+      fontSize="small"
+      sx={{ marginTop: "7px", color: "#9400EA", m: 1 }}
+    />,
+    <Button key="two" onClick={handleChangeChosenType}>
+      Individual
+    </Button>,
+  ];
+
   return (
     <div className="contacts-zone-container">
       <AppBarComponent />
+      <div className="add-contact-container">
+        <div className="add-contact-menu">
+          <div>
+            {" "}
+            <IconButton href="/contacts">
+              <ArrowBackIosIcon sx={{ color: "#fff" }} />
+            </IconButton>{" "}
+          </div>
+          <div>
+            {" "}
+            <h3 style={{ color: "#fff" }}>Add contact</h3>
+          </div>
+          <div>
+            {" "}
+            <ButtonGroup color="secondary">{buttons} </ButtonGroup>
+          </div>
+        </div>
+        <ButtonGroup
+          color="inherit"
+          variant="text"
+          sx={{ marginTop: "20px", color: "#BEBEBE" }}
+        >
+          {buttonsextra}{" "}
+        </ButtonGroup>
+        {chosenType == "INDIVIDUAL" && (
+          <Grid
+            container
+            rowSpacing={4}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            sx={{ marginTop: "10px" }}
+          >
+            <Grid item xs={6}>
+              <div className="add-contact-menu-item">
+                <p className="add-contact-menu-item-p">Name</p>
+              </div>
+            </Grid>
 
-      <Box
-        sx={{
-          flexGrow: 1,
-          backgroundColor: "#fff",
-          marginTop: "20px",
-          marginRight: "40px",
-          marginLeft: "40px",
-          borderRadius: "15px",
-        }}
-      >
-        <Grid container>
-          <Grid item xs={6}>
-            <div className="add-contact-menu">
-              <div>
-                {" "}
-                <IconButton>
-                  <ArrowBackIosIcon color="inherit" />
-                </IconButton>{" "}
-              </div>
-              <div>
-                {" "}
-                <h3 style={{ fontFamily: "sans-serif" }}>Add contact</h3>
-              </div>
-              <div>
-                {" "}
-                <ButtonGroup color="secondary">{buttons} </ButtonGroup>
-              </div>
-            </div>
-            <ButtonGroup
-              color="inherit"
-              variant="text"
-              sx={{ marginLeft: "-100px", marginTop: "20px", color: "#BEBEBE" }}
-            >
-              {buttonsextra}{" "}
-            </ButtonGroup>
-            <div>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
-                <p className="add-contact-menu-item-p">Job Position</p>
+                <p className="add-contact-menu-item-p">University</p>
               </div>
+            </Grid>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
-                <p className="add-contact-menu-item-p">Company</p>
+                <p className="add-contact-menu-item-p">University position</p>
               </div>
+            </Grid>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
                 <p className="add-contact-menu-item-p">Mobile</p>
               </div>
+            </Grid>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
-                <p className="add-contact-menu-item-p">Country</p>
+                <p className="add-contact-menu-item-p">Location</p>
               </div>
+            </Grid>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
                 <p className="add-contact-menu-item-p">Email</p>
               </div>
+            </Grid>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
                 <p className="add-contact-menu-item-p">Phone</p>
               </div>
+            </Grid>
+            <Grid item xs={6}>
               <div className="add-contact-menu-item">
-                <p className="add-contact-menu-item-p">City</p>
+                <p className="add-contact-menu-item-p">Degree</p>
               </div>
-            </div>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
+        )}
+        {chosenType == "GROUP" && (
+          <Grid
+            container
+            rowSpacing={4}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            sx={{ marginTop: "10px" }}
+          >
+            <Grid item xs={6}>
+              <div className="add-contact-menu-item">
+                <p className="add-contact-menu-item-p">Name</p>
+              </div>
+            </Grid>
+
+            <Grid item xs={6}>
+              <div className="add-contact-menu-item">
+                <p className="add-contact-menu-item-p">
+                  Number of participants
+                </p>
+              </div>
+            </Grid>
+
+            <Grid item xs={6}>
+              <div className="add-contact-menu-item">
+                <p className="add-contact-menu-item-p">Contact email</p>
+              </div>
+            </Grid>
+            <Grid item xs={6}>
+              <div className="add-contact-menu-item">
+                <p className="add-contact-menu-item-p">Contact phone</p>
+              </div>
+            </Grid>
+          </Grid>
+        )}
+      </div>
     </div>
   );
 };

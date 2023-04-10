@@ -18,6 +18,7 @@ import CallIcon from "@mui/icons-material/Call";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { Link } from "@mui/material";
+import { purple } from "@mui/material/colors";
 
 import Navbar from "./NavBar";
 
@@ -49,7 +50,7 @@ const AppBarComponent = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
               >
-                <Avatar alt="Remy Sharp" />
+                <Avatar sx={{ bgcolor: purple[700] }}>AB</Avatar>
               </IconButton>
             </Tooltip>
             <Typography
@@ -63,7 +64,7 @@ const AppBarComponent = () => {
                 fontFamily: "Poppins",
               }}
             >
-              User Name
+              Aleksandra Blinova
             </Typography>
 
             <Menu

@@ -26,17 +26,18 @@ function Navbar(props) {
           Users
         </Link>
       </li>
+      <li className="nav-item">
+        <Link to="/chat" className="nav-links">
+          Chat
+        </Link>
+      </li>
       {/* <li className="nav-item">
         <Link to="/email" className="nav-links">
           Email
         </Link>
       </li>
 
-      <li className="nav-item">
-        <Link to="/chat" className="nav-links" onClick={closeMobileMenu}>
-          Chat
-        </Link>
-      </li>
+    
 
       <li className="nav-item">
         <Link to="/calls" className="nav-links" onClick={closeMobileMenu}>
