@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, CardHeader, Button, Box } from "@mui/material";
 import { Typography } from "@mui/material";
-import CalendarComponent from "../../components/calendar/CalendarComponent";
-import AppBarComponent from "../../appBar/AppBar";
-import "../../styles/CalendarPage.css";
 import { Grid } from "@mui/material";
-import Options from "../options/Options";
+
+import CalendarComponent from "./CalendarComponent";
+import AppBarComponent from "./AppBar";
+import "../styles/CalendarPage.css";
 
 const CalendarPage = () => {
   return (
@@ -22,10 +22,6 @@ const CalendarPage = () => {
           margin="auto"
           alignItems="center"
         >
-          <div>
-            {" "}
-            <Options />
-          </div>
           <div>
             <CalendarComponent />
           </div>

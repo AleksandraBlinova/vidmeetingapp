@@ -1,16 +1,16 @@
 import React from "react";
-import AppBarComponent from "../../appBar/AppBar";
-import "../../styles/ContactComponent.css";
-import { styled } from "@mui/material/styles";
+
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-import Options from "../../pages/options/Options";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { IconButton } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SquareIcon from "@mui/icons-material/Square";
-import "../../styles/AddContact.css";
+
+import AppBarComponent from "./AppBar";
+import "../styles/ContactComponent.css";
+import "../styles/AddContact.css";
 
 const buttons = [
   <Button key="one">Close</Button>,
@@ -45,7 +45,6 @@ const AddContact = () => {
         }}
       >
         <Grid container>
-          <Options />
           <Grid item xs={6}>
             <div className="add-contact-menu">
               <div>

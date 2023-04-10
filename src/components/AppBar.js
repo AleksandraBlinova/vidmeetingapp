@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,6 +17,9 @@ import EventIcon from "@mui/icons-material/Event";
 import CallIcon from "@mui/icons-material/Call";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import { Link } from "@mui/material";
+
+import Navbar from "./NavBar";
 
 const AppBarComponent = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
@@ -60,6 +64,7 @@ const AppBarComponent = () => {
             >
               User Name
             </Typography>
+
             <Menu
               anchorEl={anchorEl}
               id="account-menu"
@@ -100,30 +105,7 @@ const AppBarComponent = () => {
               </MenuItem>
 
               <Divider />
-              <MenuItem>
-                <ListItemIcon>
-                  <EventIcon fontSize="small" />
-                </ListItemIcon>
-                Events
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <ContactsIcon fontSize="small" />
-                </ListItemIcon>
-                Contacts
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <NotificationsActiveIcon fontSize="small" />
-                </ListItemIcon>
-                Notifications
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <CallIcon fontSize="small" />
-                </ListItemIcon>
-                Calls
-              </MenuItem>
+
               <MenuItem>
                 <ListItemIcon>
                   <Settings fontSize="small" />
@@ -137,10 +119,16 @@ const AppBarComponent = () => {
                 Logout
               </MenuItem>
             </Menu>
+            <Navbar />
             <Box>
               <img
                 src="./logo.png"
-                style={{ width: "80px", height: "40px", float: "left" }}
+                style={{
+                  width: "80px",
+                  height: "40px",
+                  float: "left",
+                  marginRight: "30px",
+                }}
               />
             </Box>
           </Toolbar>

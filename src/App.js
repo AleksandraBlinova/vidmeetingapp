@@ -1,21 +1,29 @@
 import "./App.css";
-import React, { useState } from "react";
-import RegistrationComponent from "./forms/Registration/RegistrationComponent";
-import SignInComponent from "./forms/SignIn/SignInComponent";
+import React from "react";
+
+import { ThemeProvider } from "@mui/material/styles";
+
+import RegistrationComponent from "./components/RegistrationComponent";
+import SignInComponent from "./components/SignInComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserAccountComponent from "./pages/userAccount/UserAccountPage";
-import ContactPage from "./pages/contacts/ContactPage";
-import AddContact from "./pages/addContact/AddContact";
-import CalendarPage from "./pages/calendar/CalendarPage";
-import Panel from "./pages/panel/Panel";
+import UserAccountComponent from "./components/UserAccountPage";
+import ContactPage from "./components/ContactPage";
+import AddContact from "./components/AddContact";
+import CalendarPage from "./components/CalendarPage";
 import { theme } from "./theming/theme";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <CalendarPage />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<CalendarPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/contacts" element={<ContactPage />} />
+            <Route path="/users" element={<UserAccountComponent />} />
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </div>
   );

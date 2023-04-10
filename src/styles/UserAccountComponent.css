@@ -1,5 +1,5 @@
 .user-account-container {
-    background-image: url(../images/d8c64b0bb83e2c79ef7df41356f3c366.jpg);
+
     width: 100%;
     height: 100%;
     position: absolute;
@@ -11,6 +11,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
+
 }
 
 .options {
@@ -49,7 +50,7 @@
     background-color: #ebefef;
     width: 320px;
     height: 50px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: left;
     padding-left: 10px;
 }
@@ -66,13 +67,14 @@
     background-color: #fff;
     width: 800px;
     height: 500px;
-    margin-left: 0px;
     border-radius: 15px;
+    display: block;
     text-align: center;
     justify-content: center;
     align-items: center;
-
+    margin: auto;
     margin-top: 41px;
+
 }
 
 .user-container {
