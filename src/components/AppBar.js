@@ -60,6 +60,7 @@ const AppBarComponent = () => {
                 flexGrow: 1,
                 display: { xs: "none", sm: "block" },
                 paddingLeft: "10px",
+                fontFamily: "Poppins",
               }}
             >
               User Name

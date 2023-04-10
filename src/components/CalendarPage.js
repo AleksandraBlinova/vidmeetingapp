@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 
 import CalendarComponent from "./CalendarComponent";
 import AppBarComponent from "./AppBar";
-import "../styles/CalendarPage.css";
+import "../styles/Calendar.css";
 
 const CalendarPage = () => {
   return (

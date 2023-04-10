@@ -24,7 +24,7 @@ import { Paper, Dialog, Button, Fab } from "@mui/material";
 import { appointments } from "../data/data-for-month";
 import { green, orange } from "@mui/material/colors";
 
-import "../styles/CalendarComponent.css";
+import "../styles/Calendar.css";
 
 const PREFIX = "Demo";
 const classes = {

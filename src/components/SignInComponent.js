@@ -8,7 +8,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
 
-import "../styles/SignInComponent.css";
+import "../styles/SignIn.css";
 
 const SignInComponent = () => {
   const [showPassword, setShowPassword] = React.useState(false);

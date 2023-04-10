@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import AppBarComponent from "./AppBar";
-import "../styles/UserAccountComponent.css";
+import "../styles/Users.css";
 
 function UserAccountComponent() {
   return (

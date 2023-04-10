@@ -9,7 +9,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SquareIcon from "@mui/icons-material/Square";
 
 import AppBarComponent from "./AppBar";
-import "../styles/ContactComponent.css";
+import "../styles/Contacts.css";
 import "../styles/AddContact.css";
 
 const buttons = [

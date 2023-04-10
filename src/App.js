@@ -14,7 +14,7 @@ import { theme } from "./theming/theme";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-primary w-full overflow-hidden">
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>

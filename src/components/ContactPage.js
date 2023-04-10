@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import ButtonsContact from "./ButtonsContact";
 import Cards from "./CardsContact";
 import AppBarComponent from "./AppBar";
-import "../styles/ContactComponent.css";
+import "../styles/Contacts.css";
 
 const ContactPage = () => {
   return (
