@@ -17,10 +17,11 @@ import EventIcon from "@mui/icons-material/Event";
 import CallIcon from "@mui/icons-material/Call";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import { Link } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import { purple } from "@mui/material/colors";
 
 import Navbar from "./NavBar";
+import { Button } from "react-admin";
 
 const AppBarComponent = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
@@ -78,12 +79,12 @@ const AppBarComponent = () => {
                 sx: {
                   overflow: "visible",
                   filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                  mt: 1.5,
+                  mt: 1,
                   "& .MuiAvatar-root": {
-                    width: 32,
-                    height: 32,
-                    ml: -0.5,
-                    mr: 1,
+                    width: 20,
+                    height: 20,
+                    ml: -1,
+                    mr: 4,
                   },
                   "&:before": {
                     content: '""',
@@ -102,24 +103,29 @@ const AppBarComponent = () => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem>
-                <Avatar /> Profile
-              </MenuItem>
+              <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Button href="/user">
+                  <Avatar /> Profile
+                </Button>
 
-              <Divider />
-
-              <MenuItem>
-                <ListItemIcon>
-                  <Settings fontSize="small" />
-                </ListItemIcon>
-                Settings
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <Logout fontSize="small" />
-                </ListItemIcon>
-                Logout
-              </MenuItem>
+                <Button>
+                  <ListItemIcon>
+                    <Settings fontSize="small" />
+                  </ListItemIcon>
+                  Settings
+                </Button>
+                <Button href="/">
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
+                  Logout
+                </Button>
+              </Grid>
             </Menu>
             <Navbar />
             <Box>

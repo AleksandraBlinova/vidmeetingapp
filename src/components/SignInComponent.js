@@ -31,9 +31,9 @@ const SignInComponent = () => {
             <FormControl
               sx={{
                 m: 5,
-                width: "38ch",
+                width: "32ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
@@ -49,9 +49,9 @@ const SignInComponent = () => {
             <FormControl
               sx={{
                 m: 2,
-                width: "38ch",
+                width: "32ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
@@ -77,7 +77,10 @@ const SignInComponent = () => {
           </div>
         </div>
         <div className="already-have-account-container-sign-in">
-          <h3>Don’t have an account? REGISTRATE</h3>
+          <h3>Don’t have an account? </h3>
+          <a href="/" style={{ color: "#fff" }}>
+            REGISTRATE
+          </a>
         </div>
         <div className="btn-submit">
           {" "}
@@ -94,6 +97,7 @@ const SignInComponent = () => {
               backgroundColor: "#A20BFF",
               width: "15ch",
             }}
+            href="/calendar"
           >
             SUBMIT
           </Button>

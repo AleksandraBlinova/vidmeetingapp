@@ -21,11 +21,7 @@ function Navbar(props) {
           Contacts
         </Link>
       </li>
-      <li className="nav-item">
-        <Link to="/users" className="nav-links">
-          Users
-        </Link>
-      </li>
+
       <li className="nav-item">
         <Link to="/chat" className="nav-links">
           Chat

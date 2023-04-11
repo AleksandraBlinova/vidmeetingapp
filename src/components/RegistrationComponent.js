@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 
 import "../styles/Registration.css";
 
-const RegistrationComponent = () => {
+const RegistrationComponent = (props) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -146,7 +146,10 @@ const RegistrationComponent = () => {
           </div>
         </div>
         <div className="already-have-account-container">
-          <h3>Already a user? LOG IN</h3>
+          <h3>Already a user? </h3>
+          <a href="/signin" style={{ color: "#fff" }}>
+            LOG IN
+          </a>
         </div>
         <div className="btn-submit">
           {" "}
@@ -163,6 +166,7 @@ const RegistrationComponent = () => {
               backgroundColor: "#A20BFF",
               width: "15ch",
             }}
+            href="/calendar"
           >
             SUBMIT
           </Button>
