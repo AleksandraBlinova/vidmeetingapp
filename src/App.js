@@ -12,7 +12,9 @@ import ContactPage from "./components/ContactPage";
 import AddContact from "./components/AddContact";
 import CalendarPage from "./components/CalendarPage";
 import ChatComponent from "./components/Chat";
+import Users from "./components/Users";
 import { theme } from "./theming/theme";
+import Events from "./components/Events";
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
           <Routes>
             <Route path="/" element={<SignInComponent />} />
             <Route path="/register" element={<RegistrationComponent />} />
-
+            <Route path="/events" element={<Events />} />
+            <Route path="/users" element={<Users />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/contacts" element={<ContactPage />} />
             <Route path="/user" element={<UserAccountComponent />} />

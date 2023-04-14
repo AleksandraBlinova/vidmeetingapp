@@ -11,11 +11,11 @@ function Navbar(props) {
 
   return (
     <ul className={click ? "nav-menu active" : "nav-menu"}>
-      {/* <li className="nav-item">
+      <li className="nav-item">
         <Link to="/events" className="nav-links" onClick={closeMobileMenu}>
           Events
         </Link>
-      </li> */}
+      </li>
       <li className="nav-item">
         <Link to="/contacts" className="nav-links">
           Contacts
@@ -27,15 +27,13 @@ function Navbar(props) {
           Chat
         </Link>
       </li>
-      {/* <li className="nav-item">
-        <Link to="/email" className="nav-links">
-          Email
+      <li className="nav-item">
+        <Link to="/users" className="nav-links">
+          Users
         </Link>
       </li>
 
-    
-
-      <li className="nav-item">
+      {/* <li className="nav-item">
         <Link to="/calls" className="nav-links" onClick={closeMobileMenu}>
           Calls
         </Link>
