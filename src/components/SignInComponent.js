@@ -78,7 +78,7 @@ const SignInComponent = () => {
         </div>
         <div className="already-have-account-container-sign-in">
           <h3>Don’t have an account? </h3>
-          <a href="/" style={{ color: "#fff" }}>
+          <a href="/register" style={{ color: "#fff" }}>
             REGISTRATE
           </a>
         </div>

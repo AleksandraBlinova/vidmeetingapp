@@ -3,7 +3,7 @@ import React from "react";
 import AppBarComponent from "./AppBar";
 import "../styles/Chat.css";
 
-const Chat = () => {
+const ChatComponent = () => {
   return (
     <div className="chat-container">
       {" "}
@@ -12,4 +12,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default ChatComponent;

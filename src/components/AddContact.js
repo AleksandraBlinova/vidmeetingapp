@@ -12,7 +12,9 @@ import AppBarComponent from "./AppBar";
 import "../styles/Contacts.css";
 
 const buttons = [
-  <Button key="one">Close</Button>,
+  <Button key="one" href="/contacts">
+    Close
+  </Button>,
   <Button key="two" variant="contained">
     Save
   </Button>,

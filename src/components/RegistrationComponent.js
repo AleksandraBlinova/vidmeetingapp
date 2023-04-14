@@ -147,7 +147,7 @@ const RegistrationComponent = (props) => {
         </div>
         <div className="already-have-account-container">
           <h3>Already a user? </h3>
-          <a href="/signin" style={{ color: "#fff" }}>
+          <a href="/" style={{ color: "#fff" }}>
             LOG IN
           </a>
         </div>
@@ -166,7 +166,7 @@ const RegistrationComponent = (props) => {
               backgroundColor: "#A20BFF",
               width: "15ch",
             }}
-            href="/calendar"
+            href="/"
           >
             SUBMIT
           </Button>

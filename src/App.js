@@ -11,7 +11,7 @@ import UserAccountComponent from "./components/UserAccountPage";
 import ContactPage from "./components/ContactPage";
 import AddContact from "./components/AddContact";
 import CalendarPage from "./components/CalendarPage";
-import Chat from "./components/Chat";
+import ChatComponent from "./components/Chat";
 import { theme } from "./theming/theme";
 
 function App() {
@@ -20,14 +20,14 @@ function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<RegistrationComponent />} />
-            <Route path="/signin" element={<SignInComponent />} />
+            <Route path="/" element={<SignInComponent />} />
+            <Route path="/register" element={<RegistrationComponent />} />
 
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/contacts" element={<ContactPage />} />
             <Route path="/user" element={<UserAccountComponent />} />
             <Route path="/addcontact" element={<AddContact />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/chat" element={<ChatComponent />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
