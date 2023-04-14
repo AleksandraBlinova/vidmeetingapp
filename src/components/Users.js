@@ -5,39 +5,8 @@ import { Form, Button, Radio, Space, Switch, Table } from "antd";
 import AppBarComponent from "./AppBar";
 import "../styles/Users.css";
 
-const columns = [
-  {
-    title: "FULL NAME",
-    dataIndex: "fullname",
-  },
-  {
-    title: "EMAIL",
-    dataIndex: "email",
-  },
-  {
-    title: "PHONE",
-    dataIndex: "phone",
-  },
-  {
-    title: "NAME",
-    dataIndex: "name",
-  },
-  {
-    title: "USER ROLE",
-    dataIndex: "userrole",
-  },
-];
-const data = [];
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
-    fullname: `Aleksandra Blinova`,
-    email: "aleksa-blinova@mail.ru",
-    phone: `89106670607`,
-    name: `sasha123`,
-    userrole: `admin`,
-  });
-}
+import { dataSource } from "../data/users-data";
+import { columns } from "../data/users-data-table-columns";
 
 const Users = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -88,7 +57,7 @@ const Users = () => {
         <Table
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={data}
+          dataSource={dataSource}
           pagination={{
             position: [bottom],
           }}
