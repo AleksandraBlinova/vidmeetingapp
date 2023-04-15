@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { Form, Button, Radio, Space, Switch, Table } from "antd";
 
 import AppBarComponent from "./AppBar";
-import "../styles/Users.css";
+import "../styles/EventTypes.css";
 
 import { dataSource } from "../data/event-types";
-import { columns } from "../data/users-data-table-columns";
+import { columns } from "../data/event-types-table-columns";
 
-const Users = () => {
+const EventTypes = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   const [bottom, setBottom] = useState("bottomRight");
@@ -21,12 +21,11 @@ const Users = () => {
   };
 
   const hasSelected = selectedRowKeys.length > 0;
-
   return (
-    <div className="users-container">
+    <div className="event-types-container">
       <AppBarComponent />
 
-      <div className="users-table-container">
+      <div className="event-types-table-container">
         {" "}
         <div className="users-table-container-header">
           <Button
@@ -88,10 +87,10 @@ const Users = () => {
             position: [bottom],
           }}
           size="small"
-        />
+        />{" "}
       </div>
     </div>
   );
 };
 
-export default Users;
+export default EventTypes;

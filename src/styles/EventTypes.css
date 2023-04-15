@@ -1,0 +1,21 @@
+.event-types-container {
+    background: linear-gradient(#000000 30%, #320b4f 100%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    white-space: nowrap;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+}
+
+.event-types-table-container {
+    width: 1200px;
+    margin: auto;
+    border: none;
+    margin-top: 20px;
+}

@@ -33,11 +33,11 @@ function Navbar(props) {
         </Link>
       </li>
 
-      {/* <li className="nav-item">
-        <Link to="/calls" className="nav-links" onClick={closeMobileMenu}>
-          Calls
+      <li className="nav-item">
+        <Link to="/eventtypes" className="nav-links">
+          EventTypes
         </Link>
-      </li> */}
+      </li>
 
       <li className="nav-item">
         <Link to="/calendar" className="nav-links">

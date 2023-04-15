@@ -16,6 +16,7 @@ import Users from "./components/Users";
 import Notifications from "./components/Notifications";
 import { theme } from "./theming/theme";
 import Events from "./components/Events";
+import EventTypes from "./components/EventTypes";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/addcontact" element={<AddContact />} />
             <Route path="/chat" element={<ChatComponent />} />
             <Route path="/notifications" element={<Notifications />} />
+            <Route path="/eventtypes" element={<EventTypes />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
