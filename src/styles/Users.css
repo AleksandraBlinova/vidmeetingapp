@@ -117,6 +117,13 @@
     border-radius: 0 !important;
 }
 
+.ant-input {
+    border-radius: 0 !important;
+}
+
+.ant-table-filter-dropdown {
+    border-radius: 0 !important;
+}
 
 .ant-pagination-item:hover {
     border-bottom: 3px solid #ffffff;
@@ -138,4 +145,25 @@
 
 .ant-pagination-item-link {
     color: rgb(255, 255, 255) !important;
+}
+
+.users-table-container-header {
+    margin-bottom: 10px;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #a125ff !important;
+    border-color: #a125ff !important;
+}
+
+tr.ant-table-row-selected>td {
+    background: #f5e8ff !important;
+}
+
+tr.ant-table-row-selected:hover>td {
+    background: #ebb3ff !important;
+}
+
+.ant-checkbox-inner:after {
+    background-color: #a125ff !important;
 }

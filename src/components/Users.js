@@ -28,13 +28,16 @@ const Users = () => {
     selectedRowKeys,
     onChange: onSelectChange,
   };
+
   const hasSelected = selectedRowKeys.length > 0;
+
   return (
     <div className="users-container">
       <AppBarComponent />
+
       <div className="users-table-container">
         {" "}
-        <div>
+        <div className="users-table-container-header">
           {hasSelected && (
             <Button
               type="primary"
