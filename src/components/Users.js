@@ -38,6 +38,19 @@ const Users = () => {
       <div className="users-table-container">
         {" "}
         <div className="users-table-container-header">
+          <Button
+            type="primary"
+            style={{
+              background: "#fff",
+              borderColor: "none",
+              color: "#000",
+              width: "70px",
+              marginRight: "10px",
+              fontWeight: "500",
+            }}
+          >
+            Add
+          </Button>
           {hasSelected && (
             <>
               <Button
@@ -48,9 +61,8 @@ const Users = () => {
                   color: "#000",
                   width: "70px",
                   marginRight: "10px",
+                  fontWeight: "500",
                 }}
-                onClick={start}
-                loading={loading}
               >
                 Edit
               </Button>
@@ -61,9 +73,8 @@ const Users = () => {
                   borderColor: "none",
                   color: "#fff",
                   width: "70px",
+                  fontWeight: "500",
                 }}
-                onClick={start}
-                loading={loading}
               >
                 Delete
               </Button>
