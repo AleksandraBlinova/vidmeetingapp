@@ -39,14 +39,35 @@ const Users = () => {
         {" "}
         <div className="users-table-container-header">
           {hasSelected && (
-            <Button
-              type="primary"
-              style={{ background: "#fff", borderColor: "none", color: "#000" }}
-              onClick={start}
-              loading={loading}
-            >
-              Edit
-            </Button>
+            <>
+              <Button
+                type="primary"
+                style={{
+                  background: "#fff",
+                  borderColor: "none",
+                  color: "#000",
+                  width: "70px",
+                  marginRight: "10px",
+                }}
+                onClick={start}
+                loading={loading}
+              >
+                Edit
+              </Button>
+              <Button
+                type="primary"
+                style={{
+                  background: "red",
+                  borderColor: "none",
+                  color: "#fff",
+                  width: "70px",
+                }}
+                onClick={start}
+                loading={loading}
+              >
+                Delete
+              </Button>
+            </>
           )}
           <span
             style={{
