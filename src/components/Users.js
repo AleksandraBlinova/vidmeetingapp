@@ -5,7 +5,7 @@ import { Form, Button, Radio, Space, Switch, Table } from "antd";
 import AppBarComponent from "./AppBar";
 import "../styles/Users.css";
 
-import { dataSource } from "../data/event-types";
+import { dataSource } from "../data/users-data";
 import { columns } from "../data/users-data-table-columns";
 
 const Users = () => {

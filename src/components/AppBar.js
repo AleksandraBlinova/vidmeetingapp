@@ -63,6 +63,7 @@ const AppBarComponent = () => {
                 display: { xs: "none", sm: "block" },
                 paddingLeft: "10px",
                 fontFamily: "Poppins",
+                fontSize: "1rem",
               }}
             >
               Aleksandra Blinova
@@ -81,8 +82,8 @@ const AppBarComponent = () => {
                   filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
                   mt: 1,
                   "& .MuiAvatar-root": {
-                    width: 20,
-                    height: 20,
+                    width: 18,
+                    height: 18,
                     ml: -1,
                     mr: 4,
                   },

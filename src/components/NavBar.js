@@ -10,7 +10,7 @@ function Navbar(props) {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <ul className={click ? "nav-menu active" : "nav-menu"}>
+    <ul className="nav-menu">
       <li className="nav-item">
         <Link to="/events" className="nav-links" onClick={closeMobileMenu}>
           Events
