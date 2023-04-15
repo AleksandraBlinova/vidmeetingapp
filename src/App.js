@@ -13,6 +13,7 @@ import AddContact from "./components/AddContact";
 import CalendarPage from "./components/CalendarPage";
 import ChatComponent from "./components/Chat";
 import Users from "./components/Users";
+import Notifications from "./components/Notifications";
 import { theme } from "./theming/theme";
 import Events from "./components/Events";
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/user" element={<UserAccountComponent />} />
             <Route path="/addcontact" element={<AddContact />} />
             <Route path="/chat" element={<ChatComponent />} />
+            <Route path="/notifications" element={<Notifications />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

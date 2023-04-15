@@ -44,15 +44,11 @@ function Navbar(props) {
           Calendar
         </Link>
       </li>
-      {/* <li className="nav-item">
-        <Link
-          to="/notifications"
-          className="nav-links"
-          onClick={closeMobileMenu}
-        >
+      <li className="nav-item">
+        <Link to="/notifications" className="nav-links">
           Notifications
         </Link>
-      </li> */}
+      </li>
     </ul>
   );
 }
