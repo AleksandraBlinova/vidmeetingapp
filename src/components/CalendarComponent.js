@@ -18,117 +18,21 @@ import {
   AppointmentForm,
   Resources,
 } from "@devexpress/dx-react-scheduler-material-ui";
-import { Box } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import { Paper, Dialog, Button, Fab } from "@mui/material";
+
+import { Paper } from "@mui/material";
 import { appointments } from "../data/data-for-month";
-import { green, orange } from "@mui/material/colors";
 
 import "../styles/Calendar.css";
 
-const PREFIX = "Demo";
-const classes = {
-  content: `${PREFIX}-content`,
-  header: `${PREFIX}-header`,
-  closeButton: `${PREFIX}-closeButton`,
-  buttonGroup: `${PREFIX}-buttonGroup`,
-  button: `${PREFIX}-button`,
-  picker: `${PREFIX}-picker`,
-  wrapper: `${PREFIX}-wrapper`,
-  icon: `${PREFIX}-icon`,
-  textField: `${PREFIX}-textField`,
-  addButton: `${PREFIX}-addButton`,
-  cardContent: `${PREFIX}-cardContent`,
-  justifyButtons: `${PREFIX}-justifyButtons`,
-};
-
 function CalendarComponent(props) {
   const [data, setData] = useState(appointments);
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [confirmationVisible, setConfirmationVisible] = useState(false);
-  const [addParticipantsVisible, setAddParticipantsVisible] = useState(false);
 
-  const [deletedAppointmentId, setDeletedAppointmentIdState] =
-    useState(undefined);
-  const [editingAppointment, setEditingAppointment] = useState(undefined);
-  const [addedAppointment, setAddedAppointment] = useState({});
-  const [startDayHour, setStartDayHour] = useState(0);
-  const [endDayHour, setEndDayHour] = useState(24);
-  const [isNewAppointment, setIsNewAppointment] = useState(false);
+  const [startDayHour, setStartDayHour] = useState(6);
+  const [endDayHour, setEndDayHour] = useState(22);
 
   useEffect(() => {
     setData(appointments);
   }, [appointments]);
-
-  const onAddedAppointmentChange = (addedAppointment) => {
-    setAddedAppointment(addedAppointment);
-    setEditingAppointment(undefined);
-    setIsNewAppointment(true);
-  };
-
-  const setDeletedAppointmentId = (id) => {
-    setDeletedAppointmentIdState(id);
-  };
-
-  const toggleConfirmationVisible = () => {
-    setConfirmationVisible(!confirmationVisible);
-  };
-
-  const toggleAddParticipantsVisible = () => {
-    setAddParticipantsVisible(!addParticipantsVisible);
-  };
-
-  const addParticipantsView = (meetingId) => {
-    toggleAddParticipantsVisible();
-  };
-
-  const commitDeletedAppointment = () => {
-    let nextData = data.filter(
-      (appointment) => appointment.id !== deletedAppointmentId
-    );
-    setData(nextData);
-    setDeletedAppointmentId(null);
-    toggleConfirmationVisible();
-  };
-
-  const commitChanges = ({ added, changed, deleted }) => {
-    let newData = data;
-    console.log(added);
-    if (added) {
-      let startingAddedId =
-        data?.length > 0 ? data[data?.length - 1].id + 1 : 0;
-      newData = [...data, { id: startingAddedId, ...added }];
-    }
-
-    if (changed) {
-      newData = data.map((appointment) =>
-        changed[appointment.id]
-          ? { ...appointment, ...changed[appointment.id] }
-          : appointment
-      );
-    }
-    if (deleted !== undefined) {
-      setDeletedAppointmentId(deleted);
-      toggleConfirmationVisible();
-    }
-
-    setData(newData);
-    setAddedAppointment({});
-  };
-
-  const [visible, setVisible] = useState(false);
-  const onVisibleChange = () => {
-    setVisible(!visible);
-  };
-
-  const [appointmentMeta, setappointmentMeta] = useState({
-    target: null,
-    data: {},
-  });
-  const onAppointmentMetaChange = ({ data, target }) => {
-    console.log({ data, target });
-    setappointmentMeta({ data, target });
-  };
 
   const resources = [
     {
@@ -151,7 +55,7 @@ function CalendarComponent(props) {
     >
       <Scheduler data={data} height={550} style={{ zIndex: "1111" }}>
         <ViewState />
-        <EditingState onCommitChanges={commitChanges} />
+        <EditingState />
         <WeekView
           startDayHour={startDayHour}
           endDayHour={endDayHour}
