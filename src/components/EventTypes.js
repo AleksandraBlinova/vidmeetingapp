@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
-import { Form, Button, Radio, Space, Switch, Table } from "antd";
+import { Form, Button, Radio, Space, Switch, Table, Input } from "antd";
 
 import AppBarComponent from "./AppBar";
 import "../styles/EventTypes.css";
 
 import { dataSource } from "../data/event-types";
-import { columns } from "../data/event-types-table-columns";
 
 const EventTypes = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
+  const [searchedText, setSearchedText] = useState("");
   const [bottom, setBottom] = useState("bottomRight");
   const onSelectChange = (newSelectedRowKeys) => {
     setSelectedRowKeys(newSelectedRowKeys);
@@ -78,10 +77,29 @@ const EventTypes = () => {
           >
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
           </span>
+          <Input.Search
+            placeholder="Search here..."
+            style={{ width: "400px", marginBottom: "6px" }}
+            onSearch={(value) => setSearchedText(value)}
+            onChange={(e) => {
+              setSearchedText(e.target.value);
+            }}
+          />
         </div>
         <Table
           rowSelection={rowSelection}
-          columns={columns}
+          columns={[
+            {
+              title: "TITLE",
+              dataIndex: "title",
+              filteredValue: [searchedText],
+              onFilter: (value, record) => {
+                return String(record.title)
+                  .toLowerCase()
+                  .includes(value.toLowerCase());
+              },
+            },
+          ]}
           dataSource={dataSource}
           pagination={{
             position: [bottom],
