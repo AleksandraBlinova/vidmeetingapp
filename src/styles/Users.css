@@ -167,3 +167,7 @@ tr.ant-table-row-selected:hover>td {
 .ant-checkbox-inner:after {
     background-color: #a125ff !important;
 }
+
+.ant-input-search-button {
+    border-radius: 0px !important;
+}
