@@ -114,12 +114,12 @@ const AppBarComponent = () => {
                   <Avatar /> Profile
                 </Button>
 
-                <Button>
+                {/* <Button>
                   <ListItemIcon>
                     <Settings fontSize="small" />
                   </ListItemIcon>
                   Settings
-                </Button>
+                </Button> */}
                 <Button href="/">
                   <ListItemIcon>
                     <Logout fontSize="small" />
