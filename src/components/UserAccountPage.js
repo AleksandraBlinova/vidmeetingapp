@@ -4,16 +4,63 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { ListItem } from "@mui/material";
-import EventIcon from "@mui/icons-material/Event";
-import CallIcon from "@mui/icons-material/Call";
-import ContactsIcon from "@mui/icons-material/Contacts";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import { styled } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
 
 import AppBarComponent from "./AppBar";
 import "../styles/Users.css";
 
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#fff",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#fff",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#fff",
+      color: "#fff",
+    },
+    "&:hover fieldset": {
+      borderColor: "#fff",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#fff",
+    },
+  },
+});
+
 function UserAccountComponent() {
+  const [pressedChange, setPressedChange] = React.useState(true);
+
+  const handleChangePressed = () => {
+    setPressedChange(!pressedChange);
+  };
+
+  const [email, setEmail] = React.useState("aleksa-blinova@mail.ru");
+
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const [phone, setPhone] = React.useState("+79106670607");
+
+  const handleChangePhone = (event) => {
+    setPhone(event.target.value);
+  };
+
+  const [image, setImage] = React.useState(
+    require("../images/image-28-04-22-05-33.jpeg")
+  );
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
+    console.log(event);
+  };
+
   return (
     <>
       <div className="user-account-container">
@@ -23,59 +70,141 @@ function UserAccountComponent() {
         </div>
 
         <div className="user-info-container">
-          <div className="user-btns">
-            {" "}
-            <Button
-              variant="outlined"
-              color="secondary"
-              sx={{ marginRight: "15px", fontSize: "1rem" }}
-            >
-              Change information
-            </Button>{" "}
-          </div>{" "}
+          {pressedChange && (
+            <div className="user-btns">
+              {" "}
+              <Button
+                variant="outlined"
+                color="secondary"
+                sx={{ marginRight: "15px", fontSize: "1rem" }}
+                onClick={handleChangePressed}
+              >
+                Change information
+              </Button>{" "}
+            </div>
+          )}
+          {!pressedChange && (
+            <div className="user-btns">
+              {" "}
+              <Button
+                variant="outlined"
+                color="secondary"
+                sx={{ marginRight: "15px", fontSize: "1rem" }}
+                onClick={handleChangePressed}
+              >
+                Save information
+              </Button>{" "}
+            </div>
+          )}
+
           <Grid item xs={8}>
             <h2 className="name">ALEKSANDRA BLINOVA</h2>
           </Grid>
+          {!pressedChange && (
+            <div class="container-file-user-photo">
+              <label for="files" class="label-file-user-photo">
+                Select Image
+              </label>
+              <input
+                id="files"
+                style={{ visibility: "hidden" }}
+                type="file"
+                onChange={onImageChange}
+                className="filetype"
+              />
+            </div>
+          )}
           <Box sx={{ width: "100%", marginTop: "30px" }}>
             <Grid
               container
               rowSpacing={1}
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
+              {" "}
               <Grid item xs={6}>
-                <img
-                  src={require("../images/image-28-04-22-05-33.jpeg")}
-                  className="person-photo"
-                />
+                <img alt="preview image" src={image} className="person-photo" />
               </Grid>
-              <Grid item xs={6} sx={{ marginTop: "50px" }}>
-                <Grid
-                  container
-                  rowSpacing={1}
-                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                >
-                  <Grid item xs={6}>
-                    <h4 style={{ color: "#fff", fontWeight: "400" }}> Email</h4>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <h3 style={{ color: "#fff" }}>aleksa-blinova@mail.ru</h3>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  rowSpacing={1}
-                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                >
-                  <Grid item xs={6}>
-                    <h4 style={{ color: "#fff", fontWeight: "400" }}>
-                      {" "}
-                      Phone number
-                    </h4>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <h3 style={{ color: "#fff" }}>+79106670607</h3>
-                  </Grid>
-                </Grid>
+              <Grid item xs={6} sx={{ marginTop: "0px" }}>
+                {pressedChange && (
+                  <>
+                    <Grid
+                      container
+                      rowSpacing={1}
+                      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    >
+                      <Grid item xs={6}>
+                        <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                          {" "}
+                          Email
+                        </h4>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h3 style={{ color: "#fff" }}>{email}</h3>
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      container
+                      rowSpacing={1}
+                      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    >
+                      <Grid item xs={6}>
+                        <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                          {" "}
+                          Phone number
+                        </h4>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h3 style={{ color: "#fff" }}>{phone}</h3>
+                      </Grid>
+                    </Grid>
+                  </>
+                )}
+                {!pressedChange && (
+                  <>
+                    <Grid
+                      container
+                      rowSpacing={1}
+                      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    >
+                      <Grid item xs={6}>
+                        <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                          {" "}
+                          Email
+                        </h4>
+                      </Grid>
+                      <Grid item xs={6}>
+                        {" "}
+                        <CssTextField
+                          label="Email"
+                          id="custom-css-outlined-input"
+                          sx={{ width: "300px" }}
+                          onChange={handleChangeEmail}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      container
+                      rowSpacing={1}
+                      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    >
+                      <Grid item xs={6}>
+                        <h4 style={{ color: "#fff", fontWeight: "400" }}>
+                          {" "}
+                          Phone number
+                        </h4>
+                      </Grid>
+                      <Grid item xs={6}>
+                        {" "}
+                        <CssTextField
+                          label="Phone"
+                          id="custom-css-outlined-input"
+                          sx={{ width: "300px" }}
+                          onChange={handleChangePhone}
+                        />
+                      </Grid>
+                    </Grid>
+                  </>
+                )}
                 <Grid
                   container
                   rowSpacing={1}
@@ -137,7 +266,7 @@ function UserAccountComponent() {
                 </Grid>
               </Grid>
             </Grid>
-          </Box>{" "}
+          </Box>
         </div>
       </div>
     </>

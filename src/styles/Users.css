@@ -54,7 +54,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-top: 61px;
+    margin-top: 40px;
 
 }
 
@@ -66,7 +66,6 @@
 .person-photo {
 
     width: 400px;
-    height: 100%;
 
 }
 
@@ -170,4 +169,32 @@ tr.ant-table-row-selected:hover>td {
 
 .ant-input-search-button {
     border-radius: 0px !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    color: #ffffff !important;
+}
+
+.css-b32lbf-MuiFormLabel-root-MuiInputLabel-root {
+    color: #ffffff !important;
+}
+
+.filetype {
+    font-family: inherit;
+    font: inherit;
+
+}
+
+.label-file-user-photo {
+    color: #ffffff;
+    text-align: center;
+    padding-left: 20px;
+
+}
+
+.container-file-user-photo {
+    width: 150px;
+    border: 1px solid white;
+    height: 30px;
+    border-radius: 3px;
 }

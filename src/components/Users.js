@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button, Table, Input } from "antd";
-
-import AppBarComponent from "./AppBar";
-import "../styles/Users.css";
-
-import { dataSource } from "../data/users-data";
-
 import { alpha, styled } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 import Switch from "@mui/material/Switch";
+import axios from "axios";
+
+import AppBarComponent from "./AppBar";
+
+import "../styles/Users.css";
 
 const PurpleSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase.Mui-checked": {
@@ -38,6 +37,28 @@ const Users = () => {
   const hasSelected = selectedRowKeys.length > 0;
 
   const [searchedText, setSearchedText] = useState("");
+
+  const [users, setUsers] = useState();
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: "http://16.16.80.197:8080/users",
+      headers: {
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+        withCredentials: true,
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        setUsers(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="users-container">
@@ -111,28 +132,34 @@ const Users = () => {
           rowSelection={rowSelection}
           columns={[
             {
-              title: "FULL NAME",
-              dataIndex: "fullname",
+              title: "FIRST NAME",
+              dataIndex: "first_name",
               filteredValue: [searchedText],
               onFilter: (value, record) => {
                 return (
-                  String(record.fullname)
+                  String(record.first_name)
+                    .toLowerCase()
+                    .includes(value.toLowerCase()) ||
+                  String(record.last_name)
                     .toLowerCase()
                     .includes(value.toLowerCase()) ||
                   String(record.email)
                     .toLowerCase()
                     .includes(value.toLowerCase()) ||
-                  String(record.phone)
+                  String(record.phone_number)
                     .toLowerCase()
                     .includes(value.toLowerCase()) ||
-                  String(record.name)
-                    .toLowerCase()
-                    .includes(value.toLowerCase()) ||
-                  String(record.userrole)
-                    .toLowerCase()
-                    .includes(value.toLowerCase())
+                  String(record.nickname).toLowerCase()
+                  //   .includes(value.toLowerCase()) ||
+                  // String(record.userrole)
+                  //   .toLowerCase()
+                  //   .includes(value.toLowerCase())
                 );
               },
+            },
+            {
+              title: "LAST NAME",
+              dataIndex: "last_name",
             },
             {
               title: "EMAIL",
@@ -140,27 +167,27 @@ const Users = () => {
             },
             {
               title: "PHONE",
-              dataIndex: "phone",
+              dataIndex: "phone_number",
             },
             {
-              title: "NAME",
-              dataIndex: "name",
+              title: "NICKNAME",
+              dataIndex: "nickname",
             },
-            {
-              title: "USER ROLE",
-              dataIndex: "userrole",
-            },
-            {
-              title: "EMAIL CONFIRM",
-              dataIndex: "emailconfirm",
-              render: (_, { emailconfirm }) => (
-                <>
-                  <PurpleSwitch checked={emailconfirm} />
-                </>
-              ),
-            },
+            // {
+            //   title: "USER ROLE",
+            //   dataIndex: "userrole",
+            // },
+            // {
+            //   title: "EMAIL CONFIRM",
+            //   dataIndex: "emailconfirm",
+            //   render: (_, { emailconfirm }) => (
+            //     <>
+            //       <PurpleSwitch checked={emailconfirm} />
+            //     </>
+            //   ),
+            // },
           ]}
-          dataSource={dataSource}
+          dataSource={users}
           pagination={{
             position: [bottom],
             pageSize: 9,
