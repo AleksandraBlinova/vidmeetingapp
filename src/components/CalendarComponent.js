@@ -20,7 +20,9 @@ import {
 } from "@devexpress/dx-react-scheduler-material-ui";
 
 import { Paper } from "@mui/material";
-import { appointments } from "../data/data-for-month";
+import { appointments } from "../data/data-for-month-my-calendar";
+import { students } from "../data/data-for-month-my-calendar";
+import { professors } from "../data/data-for-month-my-calendar";
 
 import "../styles/Calendar.css";
 
@@ -43,6 +45,18 @@ function CalendarComponent(props) {
         { id: "Room 2", text: "Room 2", color: "#7E57C2" },
         { id: "Room 3", text: "Room 3", color: "#ffa500" },
       ],
+    },
+    {
+      fieldName: "student",
+      title: "Student",
+      instances: students,
+      allowMultiple: true,
+    },
+    {
+      fieldName: "professor",
+      title: "Professor",
+      instances: professors,
+      allowMultiple: true,
     },
   ];
 

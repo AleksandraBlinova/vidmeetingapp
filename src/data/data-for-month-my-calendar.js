@@ -6,7 +6,7 @@ export const appointments = [
     id: 0,
     location: "Room 1",
     color: "purple",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [2, 3],
   },
   {
@@ -16,7 +16,7 @@ export const appointments = [
     id: 1,
     location: "Room 2",
     color: "purple",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [2, 3],
   },
   {
@@ -25,7 +25,7 @@ export const appointments = [
     endDate: new Date(2023, 5, 22, 12, 32),
     id: 5,
     location: "Room 2",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [2, 3],
   },
   {
@@ -34,7 +34,7 @@ export const appointments = [
     endDate: new Date(2023, 4, 26, 11, 0),
     id: 5,
     location: "Room 3",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [2, 3],
   },
   {
@@ -43,7 +43,7 @@ export const appointments = [
     endDate: new Date(2023, 4, 26, 13, 32),
     id: 4,
     location: "Room 3",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [1],
   },
   {
@@ -52,7 +52,7 @@ export const appointments = [
     endDate: new Date(2023, 4, 16, 12, 42),
     id: 5,
     location: "Room 2",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [1],
   },
   {
@@ -62,7 +62,7 @@ export const appointments = [
     id: 6,
     location: "Room 1",
     color: "purple",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [4],
   },
   {
@@ -71,7 +71,7 @@ export const appointments = [
     endDate: new Date(2023, 4, 27, 14, 0),
     id: 7,
     location: "Room 3",
-    student: [1, 2, 3, 4],
+    student: [1],
     professor: [4],
   },
 ];
@@ -80,21 +80,6 @@ export const students = [
   {
     text: "Blinova Aleksandra",
     id: 1,
-    color: "rgb(255, 213, 79)",
-  },
-  {
-    text: "Anastasia Namestnik",
-    id: 2,
-    color: "rgb(255, 213, 79)",
-  },
-  {
-    text: "Danila Koshevoi",
-    id: 3,
-    color: "rgb(255, 213, 79)",
-  },
-  {
-    text: "Jasur Tursunov",
-    id: 3,
     color: "rgb(255, 213, 79)",
   },
 ];

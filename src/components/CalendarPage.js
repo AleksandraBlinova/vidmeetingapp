@@ -11,11 +11,16 @@ import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { Table } from "antd";
 
 import CalendarComponent from "./CalendarComponent";
 import AppBarComponent from "./AppBar";
-import { appointments } from "../data/data-for-month";
-import { Table } from "antd";
+import {
+  appointments,
+  students,
+  professors,
+} from "../data/data-for-month-my-calendar";
+
 import "../styles/Calendar.css";
 
 const Search = styled("div")(({ theme }) => ({
@@ -99,14 +104,14 @@ const CalendarPage = () => {
       <AppBarComponent />
       <div className="calendar-zone-choose-container">
         <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <h3 className="calendar-zone-h4">Choose type</h3>
+          <Grid item xs={8}>
+            <h3 className="calendar-zone-h4">Choose type of your calendar </h3>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <ButtonGroup
               color="inherit"
               variant="text"
-              sx={{ marginTop: "20px", color: "#BEBEBE" }}
+              sx={{ marginTop: "16px", color: "#BEBEBE" }}
             >
               {buttonsextra}{" "}
             </ButtonGroup>
@@ -190,6 +195,12 @@ const CalendarPage = () => {
                         .includes(value.toLowerCase()) ||
                       String(record.location)
                         .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.student)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.professor)
+                        .toLowerCase()
                         .includes(value.toLowerCase())
                     );
                   },
@@ -229,6 +240,17 @@ const CalendarPage = () => {
                 {
                   title: "LOCATION",
                   dataIndex: "location",
+                },
+                {
+                  title: "STUDENT",
+                  dataIndex: "student",
+                  render: (student) =>
+                    students.find((i) => i.id == student).text.toString(),
+                },
+                {
+                  title: "PROFESSOR",
+                  dataIndex: "professor",
+                  render: (professor) => console.log(),
                 },
               ]}
               dataSource={appointments}
