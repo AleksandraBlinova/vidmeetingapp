@@ -32,15 +32,6 @@ function Navbar(props) {
         </Link>
       </li>
 
-      {/* <li className="nav-item">
-        <Link
-          to="/chat"
-          onClick={() => setSelected(3)}
-          className={selected === 3 ? "nav-links-selected" : "nav-links"}
-        >
-          Chat
-        </Link>
-      </li> */}
       <li className="nav-item">
         <Link
           to="/users"

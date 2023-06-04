@@ -42,3 +42,13 @@
 .calendar-zone-choose-container {
     display: inline-block;
 }
+
+.calendar-info-table {
+    width: 1300px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.calendar-search-container {
+    margin-bottom: 20px;
+}
