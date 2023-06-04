@@ -19,7 +19,7 @@
     background-color: #ffffff;
 
     position: relative;
-    margin-top: 50px;
+    margin-top: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -32,4 +32,13 @@
 
 .css-zgeqge-MuiTableCell-root .Cell-today {
     background-color: #7E57C2 !important;
+}
+
+.calendar-zone-h4 {
+    color: aliceblue;
+    margin-left: 45px;
+}
+
+.calendar-zone-choose-container {
+    display: inline-block;
 }

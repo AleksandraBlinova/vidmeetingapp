@@ -43,11 +43,9 @@ const Users = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://16.16.80.197:8080/users",
+      url: "http://16.16.80.197:3000/users",
       headers: {
         "content-type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
         withCredentials: true,
       },
     })

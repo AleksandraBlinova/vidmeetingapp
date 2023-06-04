@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
 
 import "../styles/SignIn.css";
 
@@ -26,7 +27,7 @@ const SignInComponent = () => {
           <h1>Log In</h1>
         </div>
         <div className="container-form-fields-sign-in">
-          <div className="form-field-email-sign-in">
+          <div className="form-field-password-sign-in">
             {" "}
             <FormControl
               sx={{
@@ -38,10 +39,7 @@ const SignInComponent = () => {
               }}
               variant="outlined"
             >
-              <OutlinedInput
-                id="outlined-adornment-password"
-                placeholder="Email"
-              />
+              <TextField id="filled-basic" label="Email" variant="filled" />
             </FormControl>
           </div>
           <div className="form-field-password-sign-in">
@@ -56,23 +54,7 @@ const SignInComponent = () => {
               }}
               variant="outlined"
             >
-              <OutlinedInput
-                id="outlined-adornment-password"
-                placeholder="Password"
-                type={showPassword ? "text" : "password"}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
+              <TextField id="filled-basic" label="Password" variant="filled" />
             </FormControl>
           </div>
         </div>

@@ -66,7 +66,7 @@ function CalendarComponent(props) {
         <ConfirmationDialog />
         <Appointments />
         <Resources data={resources} />
-        <AppointmentTooltip showCloseButton showOpenButton showDeleteButton />
+        <AppointmentTooltip showCloseButton />
         <AppointmentForm />
         <Toolbar />
         <DateNavigator />

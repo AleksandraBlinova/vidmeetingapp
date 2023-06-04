@@ -19,7 +19,7 @@ function Navbar(props) {
           onClick={() => setSelected(1)}
           className={selected === 1 ? "nav-links-selected" : "nav-links"}
         >
-          Events
+          All Events
         </Link>
       </li>
       <li className="nav-item">
@@ -32,7 +32,7 @@ function Navbar(props) {
         </Link>
       </li>
 
-      <li className="nav-item">
+      {/* <li className="nav-item">
         <Link
           to="/chat"
           onClick={() => setSelected(3)}
@@ -40,7 +40,7 @@ function Navbar(props) {
         >
           Chat
         </Link>
-      </li>
+      </li> */}
       <li className="nav-item">
         <Link
           to="/users"
@@ -67,7 +67,7 @@ function Navbar(props) {
           className={selected === 6 ? "nav-links-selected" : "nav-links"}
           onClick={() => setSelected(6)}
         >
-          Calendar
+          My Calendar
         </Link>
       </li>
       <li className="nav-item">

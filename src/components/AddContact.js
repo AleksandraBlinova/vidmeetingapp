@@ -31,6 +31,7 @@ const CssTextField = styled(TextField)({
     borderBottomColor: "#fff",
   },
   "& .MuiOutlinedInput-root": {
+    color: "#fff",
     "& fieldset": {
       borderColor: "#fff",
       color: "#fff",
@@ -235,11 +236,13 @@ const AddContact = () => {
             </Grid>
 
             <Grid item xs={6}>
-              <div className="add-contact-menu-item">
-                <p className="add-contact-menu-item-p">
-                  Number of participants
-                </p>
-              </div>
+              <CssTextField
+                value={numberofparticipants}
+                id="custom-css-outlined-input"
+                sx={{ width: "400px", color: "#fff" }}
+                onChange={handleChangeNumberofparticipants}
+                placeholder="Number of participants"
+              />
             </Grid>
 
             <Grid item xs={6}>

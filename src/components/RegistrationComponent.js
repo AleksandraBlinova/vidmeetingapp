@@ -33,7 +33,7 @@ const RegistrationComponent = (props) => {
                 m: 1,
                 width: "38ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
@@ -49,7 +49,7 @@ const RegistrationComponent = (props) => {
                 m: 1,
                 width: "38ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
@@ -68,7 +68,7 @@ const RegistrationComponent = (props) => {
                 m: 1,
                 width: "38ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
@@ -87,7 +87,7 @@ const RegistrationComponent = (props) => {
                 m: 1,
                 width: "38ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
@@ -119,7 +119,7 @@ const RegistrationComponent = (props) => {
                 m: 1,
                 width: "38ch",
                 backgroundColor: "#fff",
-                borderRadius: "15px",
+                borderRadius: "5px",
                 border: "none",
               }}
               variant="outlined"
