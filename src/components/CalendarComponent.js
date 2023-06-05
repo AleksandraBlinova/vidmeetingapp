@@ -23,6 +23,7 @@ import { Paper } from "@mui/material";
 import { appointments } from "../data/data-for-month-my-calendar";
 import { students } from "../data/data-for-month-my-calendar";
 import { professors } from "../data/data-for-month-my-calendar";
+import { typesofevents } from "../data/data-for-month-my-calendar";
 
 import "../styles/Calendar.css";
 
@@ -56,6 +57,12 @@ function CalendarComponent(props) {
       fieldName: "professor",
       title: "Professor",
       instances: professors,
+      allowMultiple: true,
+    },
+    {
+      fieldName: "eventtype",
+      title: "Event type",
+      instances: typesofevents,
       allowMultiple: true,
     },
   ];

@@ -21,8 +21,8 @@ import {
 import { Box } from "@mui/material";
 import { Paper, Dialog, Button, Fab } from "@mui/material";
 import { appointments } from "../data/data-for-month";
+import { typesofevents } from "../data/data-for-month";
 import { professors } from "../data/data-for-month";
-import { students } from "../data/data-for-month";
 import SquareIcon from "@mui/icons-material/Square";
 import { Grid } from "@mui/material";
 import { Table } from "antd";
@@ -139,16 +139,17 @@ function Events(props) {
         { id: "Room 3", text: "Room 3", color: "#ffa500" },
       ],
     },
-    {
-      fieldName: "student",
-      title: "Student",
-      instances: students,
-      allowMultiple: true,
-    },
+
     {
       fieldName: "professor",
       title: "Professor",
       instances: professors,
+      allowMultiple: true,
+    },
+    {
+      fieldName: "eventtype",
+      title: "Event type",
+      instances: typesofevents,
       allowMultiple: true,
     },
   ];
@@ -173,14 +174,14 @@ function Events(props) {
   const buttonsextra = [
     <SquareIcon fontSize="small" sx={{ marginTop: "7px", color: "#ffa500" }} />,
     <Button key="one" onClick={handleChangeChosenType}>
-      Calendar
+      Table
     </Button>,
     <SquareIcon
       fontSize="small"
       sx={{ marginTop: "7px", color: "#EC407A", m: 1 }}
     />,
     <Button key="two" onClick={handleChangeChosenType}>
-      Table
+      Calendar
     </Button>,
   ];
 
@@ -310,7 +311,10 @@ function Events(props) {
                       String(record.location)
                         .toLowerCase()
                         .includes(value.toLowerCase()) ||
-                      String(record.student)
+                      String(record.professor)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.eventtype)
                         .toLowerCase()
                         .includes(value.toLowerCase())
                     );
@@ -352,13 +356,18 @@ function Events(props) {
                   title: "LOCATION",
                   dataIndex: "location",
                 },
-                {
-                  title: "STUDENT",
-                  dataIndex: "student",
-                },
+
                 {
                   title: "PROFESSOR",
                   dataIndex: "professor",
+                  render: (professor) =>
+                    professors.find((i) => i.id == professor).text.toString(),
+                },
+                {
+                  title: "EVENT TYPE",
+                  dataIndex: "eventtype",
+                  render: (eventtype) =>
+                    typesofevents.find((i) => i.id == eventtype).text,
                 },
               ]}
               dataSource={appointments}

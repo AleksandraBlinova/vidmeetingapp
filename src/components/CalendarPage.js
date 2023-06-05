@@ -19,6 +19,7 @@ import {
   appointments,
   students,
   professors,
+  typesofevents,
 } from "../data/data-for-month-my-calendar";
 
 import "../styles/Calendar.css";
@@ -201,6 +202,9 @@ const CalendarPage = () => {
                         .includes(value.toLowerCase()) ||
                       String(record.professor)
                         .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.eventtype)
+                        .toLowerCase()
                         .includes(value.toLowerCase())
                     );
                   },
@@ -250,7 +254,15 @@ const CalendarPage = () => {
                 {
                   title: "PROFESSOR",
                   dataIndex: "professor",
-                  render: (professor) => console.log(),
+                  render: (professor) =>
+                    professors.find((i) => i.id == professor).text.toString(),
+                },
+
+                {
+                  title: "EVENT TYPE",
+                  dataIndex: "eventtype",
+                  render: (eventtype) =>
+                    typesofevents.find((i) => i.id == eventtype).text,
                 },
               ]}
               dataSource={appointments}

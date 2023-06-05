@@ -6,8 +6,8 @@ export const appointments = [
     id: 0,
     location: "Room 1",
     color: "purple",
-    student: [1, 2, 3, 4],
-    professor: [2, 3],
+    professor: [3],
+    eventtype: [2],
   },
   {
     title: "Formal Methods in Software Engineering",
@@ -16,8 +16,8 @@ export const appointments = [
     id: 1,
     location: "Room 2",
     color: "purple",
-    student: [1, 2, 3, 4],
-    professor: [2, 3],
+    professor: [2],
+    eventtype: [1],
   },
   {
     title: "Formal Methods in Software Engineering",
@@ -25,8 +25,8 @@ export const appointments = [
     endDate: new Date(2023, 5, 22, 12, 32),
     id: 5,
     location: "Room 2",
-    student: [1, 2, 3, 4],
-    professor: [2, 3],
+    professor: [2],
+    eventtype: [1],
   },
   {
     title: "Formal Methods in Software Engineering",
@@ -34,8 +34,8 @@ export const appointments = [
     endDate: new Date(2023, 4, 26, 11, 0),
     id: 5,
     location: "Room 3",
-    student: [1, 2, 3, 4],
-    professor: [2, 3],
+    professor: [2],
+    eventtype: [1],
   },
   {
     title: "Software Engineering Methodology",
@@ -43,8 +43,8 @@ export const appointments = [
     endDate: new Date(2023, 4, 26, 13, 32),
     id: 4,
     location: "Room 3",
-    student: [1, 2, 3, 4],
     professor: [1],
+    eventtype: [2],
   },
   {
     title: "Software Engineering Methodology",
@@ -52,8 +52,8 @@ export const appointments = [
     endDate: new Date(2023, 4, 16, 12, 42),
     id: 5,
     location: "Room 2",
-    student: [1, 2, 3, 4],
     professor: [1],
+    eventtype: [3],
   },
   {
     title: "Mentor's Seminar",
@@ -62,8 +62,8 @@ export const appointments = [
     id: 6,
     location: "Room 1",
     color: "purple",
-    student: [1, 2, 3, 4],
     professor: [4],
+    eventtype: [3],
   },
   {
     title: "Mentor's Seminar",
@@ -71,8 +71,8 @@ export const appointments = [
     endDate: new Date(2023, 4, 27, 14, 0),
     id: 7,
     location: "Room 3",
-    student: [1, 2, 3, 4],
     professor: [4],
+    eventtype: [3],
   },
 ];
 
@@ -119,5 +119,23 @@ export const professors = [
     text: "Degtyarev Konstantin",
     id: 4,
     color: "rgb(77, 182, 172)",
+  },
+];
+
+export const typesofevents = [
+  {
+    id: 1,
+    text: "Lab",
+    color: "#ff0000",
+  },
+  {
+    id: 2,
+    text: "Lecture",
+    color: "#db5e1a",
+  },
+  {
+    id: 3,
+    text: "Seminar",
+    color: "000080",
   },
 ];
