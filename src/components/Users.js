@@ -43,11 +43,7 @@ const Users = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://16.16.80.197:3000/users",
-      headers: {
-        "content-type": "application/json",
-        withCredentials: true,
-      },
+      url: "http://16.16.80.197:8080/users",
     })
       .then((response) => {
         console.log(response);
