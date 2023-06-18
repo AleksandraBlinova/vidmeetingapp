@@ -23,7 +23,7 @@ import { purple } from "@mui/material/colors";
 import Navbar from "./NavBar";
 import { Button } from "react-admin";
 
-const AppBarComponent = () => {
+const AppBarComponent = (props) => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const handleOpenSideBar = () => {
     setOpenSideBar(!openSideBar);
@@ -36,6 +36,17 @@ const AppBarComponent = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleSubmit = (e) => {
+    localStorage.setItem("rolee", 0);
+    localStorage.setItem("currentUserEmail", "");
+    localStorage.setItem("currentUserPhone", "");
+  };
+
+  const [currentUserEmail, setcurrentUserEmail] = useState(
+    localStorage.getItem("currentUserEmail")
+  );
+
   return (
     <div>
       {" "}
@@ -51,7 +62,9 @@ const AppBarComponent = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
               >
-                <Avatar sx={{ bgcolor: purple[700] }}>AB</Avatar>
+                <Avatar sx={{ bgcolor: purple[700] }}>
+                  {currentUserEmail == "blinova@gmail.com" ? "AB" : "HS"}
+                </Avatar>
               </IconButton>
             </Tooltip>
             <Typography
@@ -66,7 +79,9 @@ const AppBarComponent = () => {
                 fontSize: "1rem",
               }}
             >
-              Aleksandra Blinova
+              {currentUserEmail == "blinova@gmail.com"
+                ? "Aleksandra Blinova"
+                : "Hadi Saleh"}
             </Typography>
 
             <Menu
@@ -120,7 +135,7 @@ const AppBarComponent = () => {
                   </ListItemIcon>
                   Settings
                 </Button> */}
-                <Button href="/">
+                <Button href="/" onClick={handleSubmit}>
                   <ListItemIcon>
                     <Logout fontSize="small" />
                   </ListItemIcon>

@@ -12,7 +12,7 @@ import axios from "axios";
 
 import "../styles/SignIn.css";
 
-const SignInComponent = () => {
+const SignInComponent = (props) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -66,35 +66,13 @@ const SignInComponent = () => {
   const [currentHref, setCurrentHref] = useState("");
 
   const handleSubmit = (e) => {
-    const values = {
-      email: currentEmail,
-      password: currentPassword,
-    };
-
-    const headers = {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-    };
-
-    axios
-      .post("http://16.16.80.197:8080/login", values)
-      .then((response) => {})
-      .catch((error) => {});
-
-    // axios({
-    //   method: "POST",
-    //   url: "http://16.16.80.197:8080/login",
-    //   data: {
-    //     email: currentEmail,
-    //     password: currentPassword,
-    //   },
-    // })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    localStorage.setItem("currentUserEmail", currentEmail);
+    currentEmail == "blinova@gmail.com"
+      ? props.changeRoleee(1)
+      : props.changeRoleee(2);
+    currentEmail == "blinova@gmail.com"
+      ? localStorage.setItem("currentUserPhone", "+79106670607")
+      : localStorage.setItem("currentUserPhone", "+666666");
   };
 
   return (

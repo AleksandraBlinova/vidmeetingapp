@@ -19,16 +19,19 @@ import Events from "./components/Events";
 import EventTypes from "./components/EventTypes";
 
 function App() {
-  const [role, setRole] = useState(localStorage.getItem("role")); // 0 - guest; 1 - student; 2 - admin
-  const changeRole = () => {
-    setRole(1);
+  const [roleee, setRoleee] = useState(localStorage.getItem("rolee")); // 0 - guest; 1 - student; 2 - admin
+  const changeRoleee = (value) => {
+    localStorage.setItem("rolee", value);
   };
   return (
     <div className="bg-primary w-full overflow-hidden">
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<SignInComponent />} />
+            <Route
+              path="/"
+              element={<SignInComponent changeRoleee={changeRoleee} />}
+            />
             <Route path="/register" element={<RegistrationComponent />} />
             <Route path="/events" element={<Events />} />
             <Route path="/users" element={<Users />} />
