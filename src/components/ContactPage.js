@@ -103,202 +103,107 @@ const ContactPage = () => {
       <AppBarComponent />
 
       <div className="contacts-info-container">
-        <div className="contacts-zone-choose-container">
-          <h3 className="contacts-zone-h4">Choose types of your contacts</h3>
-          <ButtonGroup
-            color="inherit"
-            variant="text"
-            sx={{ marginTop: "20px", color: "#BEBEBE" }}
-          >
-            {buttonsextra}{" "}
+        <>
+          <ButtonGroup>
+            {" "}
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon sx={{ color: "#9c27b0" }} />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+                onSearch={(value) => setSearchedText(value)}
+                onChange={(e) => {
+                  setSearchedText(e.target.value);
+                }}
+              />
+            </Search>{" "}
+            <IconButton>
+              {" "}
+              <DeleteIcon sx={{ color: "#fff", fontSize: "30px" }} />
+            </IconButton>
+            <IconButton
+              sx={{
+                color: "#fff",
+                backgroundColor: "#9400EA",
+                width: "47px",
+              }}
+              href="/addcontact"
+            >
+              {" "}
+              <AddIcon />
+            </IconButton>
           </ButtonGroup>
-        </div>
-        {chosenType == "INDIVIDUAL" && (
-          <>
-            <ButtonGroup>
-              {" "}
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon sx={{ color: "#9c27b0" }} />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                  onSearch={(value) => setSearchedText(value)}
-                  onChange={(e) => {
-                    setSearchedText(e.target.value);
-                  }}
-                />
-              </Search>{" "}
-              <IconButton>
-                {" "}
-                <DeleteIcon sx={{ color: "#fff", fontSize: "30px" }} />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: "#fff",
-                  backgroundColor: "#9400EA",
-                  width: "47px",
-                }}
-                href="/addcontact"
-              >
-                {" "}
-                <AddIcon />
-              </IconButton>
-            </ButtonGroup>
 
-            <div className="contacts-info-table">
-              {" "}
-              <Table
-                rowSelection={rowSelection}
-                columns={[
-                  {
-                    title: "NAME OF CONTACT",
-                    dataIndex: "nameofcontacts",
-                    filteredValue: [searchedText],
-                    onFilter: (value, record) => {
-                      return (
-                        String(record.nameofcontacts)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.email)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.nickname)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.phone)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.degree)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.university)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.universityposition)
-                          .toLowerCase()
-                          .includes(value.toLowerCase())
-                      );
-                    },
+          <div className="contacts-info-table">
+            {" "}
+            <Table
+              rowSelection={rowSelection}
+              columns={[
+                {
+                  title: "NAME OF CONTACT",
+                  dataIndex: "nameofcontacts",
+                  filteredValue: [searchedText],
+                  onFilter: (value, record) => {
+                    return (
+                      String(record.nameofcontacts)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.email)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.nickname)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.phone)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.degree)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.university)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.universityposition)
+                        .toLowerCase()
+                        .includes(value.toLowerCase())
+                    );
                   },
-                  {
-                    title: "EMAIL",
-                    dataIndex: "email",
-                  },
-                  {
-                    title: "PHONE",
-                    dataIndex: "phone",
-                  },
-                  {
-                    title: "NICKNAME",
-                    dataIndex: "nickname",
-                  },
-                  {
-                    title: "UNIVERSITY POSITION",
-                    dataIndex: "universityposition",
-                  },
-                  {
-                    title: "UNIVERSITY",
-                    dataIndex: "university",
-                  },
-                  {
-                    title: "DEGREE",
-                    dataIndex: "degree",
-                  },
-                ]}
-                dataSource={dataSourceContacts}
-                pagination={{
-                  position: [bottom],
-                }}
-                size="small"
-              />{" "}
-            </div>
-          </>
-        )}
-        {chosenType == "GROUP" && (
-          <>
-            <ButtonGroup>
-              {" "}
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon sx={{ color: "#9c27b0" }} />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                  onSearch={(value) => setSearchedText(value)}
-                  onChange={(e) => {
-                    setSearchedText(e.target.value);
-                  }}
-                />
-              </Search>{" "}
-              <IconButton>
-                {" "}
-                <DeleteIcon sx={{ color: "#fff", fontSize: "30px" }} />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: "#fff",
-                  backgroundColor: "#9400EA",
-                  width: "47px",
-                }}
-                href="/addcontact"
-              >
-                {" "}
-                <AddIcon />
-              </IconButton>
-            </ButtonGroup>
-
-            <div className="contacts-info-table">
-              {" "}
-              <Table
-                rowSelection={rowSelection}
-                columns={[
-                  {
-                    title: "NAME",
-                    dataIndex: "name",
-                    filteredValue: [searchedText],
-                    onFilter: (value, record) => {
-                      return (
-                        String(record.name)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.contactemail)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.contactphone)
-                          .toLowerCase()
-                          .includes(value.toLowerCase()) ||
-                        String(record.numberofparticipants)
-                          .toLowerCase()
-                          .includes(value.toLowerCase())
-                      );
-                    },
-                  },
-                  {
-                    title: "EMAIL",
-                    dataIndex: "contactemails",
-                  },
-                  {
-                    title: "PHONE",
-                    dataIndex: "contactphone",
-                  },
-
-                  {
-                    title: "NUMBER OF PARTICIPANTS",
-                    dataIndex: "numberofparticipants",
-                  },
-                ]}
-                dataSource={dataSourceContactsGroups}
-                pagination={{
-                  position: [bottom],
-                }}
-                size="small"
-              />{" "}
-            </div>
-          </>
-        )}
+                },
+                {
+                  title: "EMAIL",
+                  dataIndex: "email",
+                },
+                {
+                  title: "PHONE",
+                  dataIndex: "phone",
+                },
+                {
+                  title: "NICKNAME",
+                  dataIndex: "nickname",
+                },
+                {
+                  title: "UNIVERSITY POSITION",
+                  dataIndex: "universityposition",
+                },
+                {
+                  title: "UNIVERSITY",
+                  dataIndex: "university",
+                },
+                {
+                  title: "DEGREE",
+                  dataIndex: "degree",
+                },
+              ]}
+              dataSource={dataSourceContacts}
+              pagination={{
+                position: [bottom],
+              }}
+              size="small"
+            />{" "}
+          </div>
+        </>
       </div>
     </div>
   );

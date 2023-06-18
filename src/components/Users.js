@@ -46,7 +46,6 @@ const Users = () => {
       url: "http://16.16.80.197:8080/users",
     })
       .then((response) => {
-        console.log(response);
         setUsers(response.data);
       })
       .catch((error) => {

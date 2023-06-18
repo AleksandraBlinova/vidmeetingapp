@@ -137,145 +137,79 @@ const AddContact = () => {
             <ButtonGroup color="secondary">{buttons} </ButtonGroup>
           </div>
         </div>
-        <ButtonGroup
-          color="inherit"
-          variant="text"
-          sx={{ marginTop: "20px", color: "#BEBEBE" }}
+
+        <Grid
+          container
+          rowSpacing={4}
+          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          sx={{ marginTop: "10px" }}
         >
-          {buttonsextra}{" "}
-        </ButtonGroup>
-        {chosenType == "INDIVIDUAL" && (
-          <Grid
-            container
-            rowSpacing={4}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            sx={{ marginTop: "10px" }}
-          >
-            <Grid item xs={6}>
-              <CssTextField
-                value={name}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeName}
-                placeholder="Name"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <CssTextField
-                value={nickname}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeNickname}
-                placeholder="Nickname"
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <CssTextField
-                value={university}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeUniversity}
-                placeholder="University"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <CssTextField
-                value={universityposition}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeUniversityPosition}
-                placeholder="University Position"
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <CssTextField
-                value={email}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeEmail}
-                placeholder="Email"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <CssTextField
-                value={phone}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangePhone}
-                placeholder="Phone number"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <CssTextField
-                value={degree}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeDegree}
-                placeholder="Degree"
-              />
-            </Grid>
+          <Grid item xs={6}>
+            <CssTextField
+              value={name}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangeName}
+              placeholder="Name"
+            />
           </Grid>
-        )}
-        {chosenType == "GROUP" && (
-          <Grid
-            container
-            rowSpacing={4}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            sx={{ marginTop: "10px" }}
-          >
-            <Grid item xs={6}>
-              <CssTextField
-                value={name}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeName}
-                placeholder="Name"
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <CssTextField
-                value={numberofparticipants}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeNumberofparticipants}
-                placeholder="Number of participants"
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <CssTextField
-                value={email}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeEmail}
-                placeholder="Email"
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <CssTextField
-                value={phone}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangePhone}
-                placeholder="Phone number"
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <CssTextField
-                value={numberofparticipants}
-                id="custom-css-outlined-input"
-                sx={{ width: "400px", color: "#fff" }}
-                onChange={handleChangeNumberofparticipants}
-                placeholder="Number of participants"
-              />
-            </Grid>
+          <Grid item xs={6}>
+            <CssTextField
+              value={nickname}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangeNickname}
+              placeholder="Nickname"
+            />
           </Grid>
-        )}
+
+          <Grid item xs={6}>
+            <CssTextField
+              value={university}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangeUniversity}
+              placeholder="University"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <CssTextField
+              value={universityposition}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangeUniversityPosition}
+              placeholder="University Position"
+            />
+          </Grid>
+
+          <Grid item xs={6}>
+            <CssTextField
+              value={email}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangeEmail}
+              placeholder="Email"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <CssTextField
+              value={phone}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangePhone}
+              placeholder="Phone number"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <CssTextField
+              value={degree}
+              id="custom-css-outlined-input"
+              sx={{ width: "400px", color: "#fff" }}
+              onChange={handleChangeDegree}
+              placeholder="Degree"
+            />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

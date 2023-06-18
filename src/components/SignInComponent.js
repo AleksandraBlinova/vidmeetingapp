@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -8,6 +8,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
+import axios from "axios";
 
 import "../styles/SignIn.css";
 
@@ -18,6 +19,82 @@ const SignInComponent = () => {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const [token, setToken] = useState("");
+
+  const [users, setUsers] = useState();
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: "http://16.16.80.197:8080/users",
+    })
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const [currentEmail, setcurrentEmail] = useState("");
+
+  const handleChangecurrentEmail = (event) => {
+    setcurrentEmail(event.target.value);
+  };
+
+  const [currentPassword, setcurrentPassword] = useState("");
+
+  const handleChangecurrentPassword = (event) => {
+    setcurrentPassword(event.target.value);
+  };
+
+  const [currentUser, setcurrentUser] = useState("");
+
+  const handleChangecurrentUser = (user) => {
+    setcurrentUser(user);
+  };
+
+  const [currentUserEmail, setcurrentUserEmail] = useState(
+    localStorage.getItem("currentUserEmail")
+  );
+  const changeCurrentUserEmail = (value) => {
+    setcurrentUserEmail(value);
+  };
+
+  const [currentHref, setCurrentHref] = useState("");
+
+  const handleSubmit = (e) => {
+    const values = {
+      email: currentEmail,
+      password: currentPassword,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    };
+
+    axios
+      .post("http://16.16.80.197:8080/login", values)
+      .then((response) => {})
+      .catch((error) => {});
+
+    // axios({
+    //   method: "POST",
+    //   url: "http://16.16.80.197:8080/login",
+    //   data: {
+    //     email: currentEmail,
+    //     password: currentPassword,
+    //   },
+    // })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (
@@ -39,7 +116,13 @@ const SignInComponent = () => {
               }}
               variant="outlined"
             >
-              <TextField id="filled-basic" label="Email" variant="filled" />
+              <TextField
+                id="filled-basic"
+                label="Email"
+                variant="filled"
+                onChange={handleChangecurrentEmail}
+                value={currentEmail}
+              />
             </FormControl>
           </div>
           <div className="form-field-password-sign-in">
@@ -54,7 +137,13 @@ const SignInComponent = () => {
               }}
               variant="outlined"
             >
-              <TextField id="filled-basic" label="Password" variant="filled" />
+              <TextField
+                id="filled-basic"
+                label="Password"
+                variant="filled"
+                onChange={handleChangecurrentPassword}
+                value={currentPassword}
+              />
             </FormControl>
           </div>
         </div>
@@ -79,9 +168,10 @@ const SignInComponent = () => {
               backgroundColor: "#A20BFF",
               width: "15ch",
             }}
-            href="/calendar"
+            type="submit"
+            onClick={handleSubmit}
           >
-            SUBMIT
+            <a href="/calendar">SUBMIT</a>
           </Button>
         </div>
       </div>
