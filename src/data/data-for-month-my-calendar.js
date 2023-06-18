@@ -84,6 +84,36 @@ export const appointments = [
   },
 ];
 
+export const appointmentsHadi = [
+  {
+    title: "Software Engineering Methodology",
+    startDate: new Date(2023, 4, 26, 12, 0),
+    endDate: new Date(2023, 4, 26, 13, 32),
+    id: 4,
+    location: "Room 3",
+    professor: [1],
+    eventtype: [2],
+  },
+  {
+    title: "Software Engineering Methodology",
+    startDate: new Date(2023, 4, 16, 14, 30),
+    endDate: new Date(2023, 4, 16, 12, 42),
+    id: 5,
+    location: "Room 2",
+    professor: [1],
+    eventtype: [3],
+  },
+  {
+    title: "Software Engineering Methodology",
+    startDate: new Date(2023, 4, 18, 14, 30),
+    endDate: new Date(2023, 4, 18, 12, 42),
+    id: 6,
+    location: "Room 1",
+    professor: [1],
+    eventtype: [1],
+  },
+];
+
 export const students = [
   {
     text: "Blinova Aleksandra",

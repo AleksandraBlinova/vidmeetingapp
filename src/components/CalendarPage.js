@@ -17,6 +17,7 @@ import CalendarComponent from "./CalendarComponent";
 import AppBarComponent from "./AppBar";
 import {
   appointments,
+  appointmentsHadi,
   students,
   professors,
   typesofevents,
@@ -83,6 +84,10 @@ const CalendarPage = () => {
     onChange: onSelectChange,
   };
 
+  const [currentUserEmail, setcurrentUserEmail] = useState(
+    localStorage.getItem("currentUserEmail")
+  );
+
   const hasSelected = selectedRowKeys.length > 0;
 
   const buttonsextra = [
@@ -138,7 +143,7 @@ const CalendarPage = () => {
           </div>
         </>
       )}
-      {chosenType == "TABLE" && (
+      {chosenType == "TABLE" && currentUserEmail == "blinova@gmail.com" && (
         <>
           <div className="calendar-info-table">
             <div className="calendar-search-container">
@@ -266,6 +271,137 @@ const CalendarPage = () => {
                 },
               ]}
               dataSource={appointments}
+              pagination={{
+                position: [bottom],
+              }}
+              size="small"
+            />{" "}
+          </div>
+        </>
+      )}
+      {chosenType == "TABLE" && currentUserEmail == "hadisaleh@gmail.com" && (
+        <>
+          <div className="calendar-info-table">
+            <div className="calendar-search-container">
+              {" "}
+              <ButtonGroup>
+                {" "}
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon sx={{ color: "#9c27b0" }} />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ "aria-label": "search" }}
+                    onSearch={(value) => setSearchedText(value)}
+                    onChange={(e) => {
+                      setSearchedText(e.target.value);
+                    }}
+                  />
+                </Search>{" "}
+                <IconButton>
+                  {" "}
+                  <DeleteIcon sx={{ color: "#fff", fontSize: "30px" }} />
+                </IconButton>
+                <IconButton
+                  sx={{
+                    color: "#fff",
+                    backgroundColor: "#9400EA",
+                    width: "47px",
+                  }}
+                  href="/"
+                >
+                  {" "}
+                  <AddIcon />
+                </IconButton>
+              </ButtonGroup>{" "}
+            </div>
+            <Table
+              rowSelection={rowSelection}
+              columns={[
+                {
+                  title: "TITLE",
+                  dataIndex: "title",
+                  filteredValue: [searchedText],
+
+                  onFilter: (value, record) => {
+                    return (
+                      String(record.title)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.startDate)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.endDate)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.location)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.student)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.professor)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                      String(record.eventtype)
+                        .toLowerCase()
+                        .includes(value.toLowerCase())
+                    );
+                  },
+                },
+                {
+                  title: "START DATE",
+                  dataIndex: "startDate",
+                  defaultSortOrder: "descend",
+                  sorter: (a, b) => a.startDate - b.startDate,
+                  render: (startDate) =>
+                    ("0" + startDate.getDate()).slice(-2) +
+                    "." +
+                    ("0" + (startDate.getMonth() + 1)).slice(-2) +
+                    "." +
+                    startDate.getFullYear() +
+                    " " +
+                    ("0" + startDate.getHours()).slice(-2) +
+                    ":" +
+                    ("0" + startDate.getMinutes()).slice(-2),
+                },
+                {
+                  title: "END DATE",
+                  dataIndex: "endDate",
+                  defaultSortOrder: "descend",
+                  sorter: (a, b) => a.endDate - b.endDate,
+                  render: (endDate) =>
+                    ("0" + endDate.getDate()).slice(-2) +
+                    "." +
+                    ("0" + (endDate.getMonth() + 1)).slice(-2) +
+                    "." +
+                    endDate.getFullYear() +
+                    " " +
+                    ("0" + endDate.getHours()).slice(-2) +
+                    ":" +
+                    ("0" + endDate.getMinutes()).slice(-2),
+                },
+                {
+                  title: "LOCATION",
+                  dataIndex: "location",
+                },
+
+                {
+                  title: "PROFESSOR",
+                  dataIndex: "professor",
+                  render: (professor) =>
+                    professors.find((i) => i.id == professor).text.toString(),
+                },
+
+                {
+                  title: "EVENT TYPE",
+                  dataIndex: "eventtype",
+                  render: (eventtype) =>
+                    typesofevents.find((i) => i.id == eventtype).text,
+                },
+              ]}
+              dataSource={appointmentsHadi}
               pagination={{
                 position: [bottom],
               }}

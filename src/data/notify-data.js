@@ -18,3 +18,15 @@ export const dataSourceNotify = [
     sent: false,
   },
 ];
+
+export const dataSourceNotifyHadi = [
+  {
+    key: "1",
+    receiver: `Hadi Saleh`,
+    email: "hadisaleh@gmail.com",
+    title: `Reset password`,
+    date: `April 15, 2023`,
+    message: `You have been added to the system, please reset your password`,
+    sent: true,
+  },
+];

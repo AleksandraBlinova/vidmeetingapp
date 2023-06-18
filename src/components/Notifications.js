@@ -5,7 +5,7 @@ import { Table, Input } from "antd";
 import AppBarComponent from "./AppBar";
 import "../styles/Notifications.css";
 
-import { dataSourceNotify } from "../data/notify-data";
+import { dataSourceNotify, dataSourceNotifyHadi } from "../data/notify-data";
 import { purple } from "@mui/material/colors";
 
 import Checkbox from "@mui/material/Checkbox";
@@ -13,6 +13,10 @@ import Checkbox from "@mui/material/Checkbox";
 const Notifications = () => {
   const [bottom, setBottom] = useState("bottomRight");
   const [searchedText, setSearchedText] = useState("");
+
+  const [currentUserEmail, setcurrentUserEmail] = useState(
+    localStorage.getItem("currentUserEmail")
+  );
 
   return (
     <div className="notify-container">
@@ -88,7 +92,11 @@ const Notifications = () => {
               ),
             },
           ]}
-          dataSource={dataSourceNotify}
+          dataSource={
+            currentUserEmail == "blinova@gmail.com"
+              ? dataSourceNotify
+              : dataSourceNotifyHadi
+          }
           pagination={{
             position: [bottom],
           }}
